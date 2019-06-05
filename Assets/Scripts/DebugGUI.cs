@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AdjustGunOffset : MonoBehaviour
+public class DebugGUI : MonoBehaviour
 {
     [SerializeField] Toggle useLocalPosition;
     [SerializeField] Text textX;
@@ -14,15 +15,31 @@ public class AdjustGunOffset : MonoBehaviour
     [SerializeField] Slider sliderY;
     [SerializeField] Slider sliderZ;
 
-    [SerializeField] GameObject gun;
+
+    [SerializeField] Text textGunForce;
+    [SerializeField] Slider sliderGunForce;
+
+    [SerializeField] GameObject gunObject;
 
     
     Vector3 offset;
+    private Gun gun;
+
+    void Start()
+    {
+        gun = gunObject.GetComponent<Gun>();
+    }
 
     void Update()
     {
         SetOffset();
+        SetGunForce();
         UpdateText();
+    }
+
+    private void SetGunForce()
+    {
+        gun.force = sliderGunForce.value;
     }
 
     private void SetOffset()
@@ -40,10 +57,13 @@ public class AdjustGunOffset : MonoBehaviour
 
     private void UpdateText()
     {
-        //Update the GUI
-        textX.text = offset.x.ToString();
-        textY.text = offset.y.ToString();
-        textZ.text = offset.z.ToString();
+        //Offset
+        textX.text = "Offset X: " + offset.x.ToString();
+        textY.text = "Offset Y: " + offset.y.ToString();
+        textZ.text = "Offset Z: " + offset.z.ToString();
+
+        //Gun force
+        textGunForce.text = "Gun Force: " + gun.force.ToString();
     }
 
     public void Reset()
