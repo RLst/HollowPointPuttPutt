@@ -30,6 +30,18 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
+
+        RaycastHit hit;
+        int layermask = 1 << 8;
+        layermask = ~layermask;
+
+        if(Physics.Raycast(muzzle.position, muzzle.forward, out hit, Mathf.Infinity, layermask))
+        {
+            if(hit.collider.CompareTag("Tower"))
+            {
+                hit.collider.GetComponent<WatchTowerScript>().shouldBeLit = true;
+            }
+        }
     }
 
 
