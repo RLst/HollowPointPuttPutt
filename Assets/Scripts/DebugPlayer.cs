@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace HollowPoint.DB
 {
-    public class DebugPlayer : MonoBehaviour
+    public class DebugPlayer : Player
     {
-        [SerializeField] float speed = 10f;
+        [SerializeField] float speed = 0.5f;
+        [SerializeField] 
 
         // [Header("Input")]
         // [SerializeField] string horizontalAxis = "Horizontal";
@@ -20,8 +21,8 @@ namespace HollowPoint.DB
         void Start()
         {
             tp = transform.position;
-            // gun = GetComponentInChildren<Gun>();
             input = GetComponent<IInput>();
+            // gun = GetComponentInChildren<Gun>();
         }
 
         void Update()
