@@ -1,84 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public struct Ammo
+namespace HollowPoint
 {
-    public float power;
-    public float mass;
-}
-
-public class Gun : MonoBehaviour
-{
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform muzzle;
-    public float force = 10f;
-
-
-    //TEMP! Make a proper input controller
-    void FixedUpdate()
+    public class Gun : MonoBehaviour
     {
-        OVRInput.FixedUpdate();
-    }
+        [SerializeField] GameObject bulletPrefab;
+        [SerializeField] Transform muzzle;
+        [SerializeField] float range = 1000f;
 
-    void Update()
-    {
-        OVRInput.Update();
+        public float force = 10f;   //Temp?
 
-        GameObject towerHit = towerCheck();
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+
+        public bool Raycast<T>(out T hitT, LayerMask layer) where T : MonoBehaviour
         {
-            if (towerHit == null)
-                Shoot();
-            else
+            if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitObj, range, layer))
             {
-                GameObject player = GameObject.Find("OVRCameraRig");
-                player.GetComponent<FadeManager>().InitiateTeleport(towerHit.transform.position);
+                //Something hit, check to make sure that it's of type T
+                var hitComp = hitObj.collider.GetComponent<T>();
+                if (!hitComp)
+                {
+                    //Object hit is of correct type; SUCCESS
+                    hitT = hitComp;
+                    return true;
+                }
+                //Wrong type; FAIL
             }
+            //Either nothing hit or object hit of wrong type; FAIL
+            hitT = null;
+            return false;
         }
-        
 
-    }
-
-    private GameObject towerCheck()
-    {
-        RaycastHit hit;
-        int layermask = 1 << 8;
-        layermask = ~layermask;
-
-        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, Mathf.Infinity, layermask))
+        public void Shoot()
         {
-            if (hit.collider.CompareTag("Tower"))
-            {
-                hit.collider.GetComponent<WatchTowerScript>().shouldBeLit = true;
-                return hit.collider.transform.Find("PlayerPos").gameObject;
-            }
+            var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+
+            var bulletRB = bullet.GetComponent<Rigidbody>();
+
+            bulletRB.AddForce(transform.forward * force);
         }
-        return null;
-    }
 
-    public void Shoot()
-    {
-        var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+        //======================================
+        void OnGUI()
+        {
+            GUILayout.Label("Gun");
+            GUILayout.Space(5);
+            GUILayout.Label("Primary Hand Trigger: " + Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger"));
+        }
 
-        var bulletRB = bullet.GetComponent<Rigidbody>();
-
-        bulletRB.AddForce(transform.forward * force);
-    }
-
-
-    //======================================
-    void OnGUI()
-    {
-        GUILayout.Label("Gun");
-        GUILayout.Space(5);
-        GUILayout.Label("Primary Hand Trigger: " + Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger"));
-    }
-
-    //--------- TEMP --------------
-    public void SetGunForce(float _force)
-    {
-        this.force = _force;
+        //--------- TEMP --------------
+        public void SetGunForce(float _force)
+        {
+            this.force = _force;
+        }
     }
 }
