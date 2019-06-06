@@ -39,7 +39,10 @@ public class DebugGUI : MonoBehaviour
 
     private void SetGunForce()
     {
-        gun.force = sliderGunForce.value;
+        if(sliderGunForce != null)
+            gun.force = sliderGunForce.value;
+        else
+            Debug.Log("sliderGunForce == null");
     }
 
     private void SetOffset()
@@ -63,7 +66,10 @@ public class DebugGUI : MonoBehaviour
         textZ.text = "Offset Z: " + offset.z.ToString();
 
         //Gun force
-        textGunForce.text = "Gun Force: " + gun.force.ToString();
+        if (textGunForce != null)
+            textGunForce.text = "Gun Force: " + gun.force.ToString();
+        else
+            Debug.Log("textGunForce == null");
     }
 
     public void Reset()

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class WatchTowerScript : MonoBehaviour
 {
-    BoxCollider boxCollider;
-    
+    private Color curColour = Color.white;
+
     public bool shouldBeLit = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider = GetComponent<BoxCollider>();
+        
     }
 
     // Update is called once per frame
@@ -24,17 +24,23 @@ public class WatchTowerScript : MonoBehaviour
         else
             towerColour = Color.white;
 
-
-        foreach (Transform child in transform)
+        if (towerColour != curColour)
         {
-            child.gameObject.GetComponent<Renderer>().material.SetColor("_Color", towerColour);
+            changeTowerColour(towerColour);
+            curColour = towerColour;
         }
         shouldBeLit = false;
     }
 
-    public void changeTowerColour()
+    private void changeTowerColour(Color colour)
     {
-
+        foreach (Transform child in transform)
+        {
+            Renderer childRenderer = child.gameObject.GetComponent<Renderer>();
+            if(childRenderer != null)
+                childRenderer.material.SetColor("_Color", colour);
+        }
+        
     }
     
 }

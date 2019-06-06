@@ -26,24 +26,37 @@ public class Gun : MonoBehaviour
     {
         OVRInput.Update();
 
+        GameObject towerHit = towerCheck();
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
-            Shoot();
+            if (towerHit == null)
+                Shoot();
+            else
+            {
+                GameObject player = GameObject.Find("OVRCameraRig");
+                player.GetComponent<FadeManager>().InitiateTeleport(towerHit.transform.position);
+            }
         }
+        
 
+    }
+
+    private GameObject towerCheck()
+    {
         RaycastHit hit;
         int layermask = 1 << 8;
         layermask = ~layermask;
 
-        if(Physics.Raycast(muzzle.position, muzzle.forward, out hit, Mathf.Infinity, layermask))
+        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, Mathf.Infinity, layermask))
         {
-            if(hit.collider.CompareTag("Tower"))
+            if (hit.collider.CompareTag("Tower"))
             {
                 hit.collider.GetComponent<WatchTowerScript>().shouldBeLit = true;
+                return hit.collider.transform.Find("PlayerPos").gameObject;
             }
         }
+        return null;
     }
-
 
     public void Shoot()
     {
