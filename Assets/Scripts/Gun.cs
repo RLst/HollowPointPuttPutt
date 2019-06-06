@@ -18,7 +18,7 @@ namespace HollowPoint
             {
                 //Something hit, check to make sure that it's of type T
                 var hitComp = hitObj.collider.GetComponent<T>();
-                if (!hitComp)
+                if (hitComp != null)
                 {
                     //Object hit is of correct type; SUCCESS
                     hitT = hitComp;
