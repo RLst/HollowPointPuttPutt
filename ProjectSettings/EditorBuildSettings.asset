@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 32c12bac844eecc4a9a8da6111c3b41a
   - enabled: 1
     path: Assets/Scenes/WatchTowerTest.unity
     guid: ede1ffc744fe1ac48ac64304258a4f3f

@@ -26,7 +26,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5689013728371194070}
   m_Father: {fileID: 5689013729553648406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -155,7 +156,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5691566339077307904}
-  - {fileID: 5689013728371194070}
   m_Father: {fileID: 5689013729553672070}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 5689013729563711232}
   - component: {fileID: 5721224145659101252}
   m_Layer: 0
-  m_Name: OVRCameraRig
+  m_Name: VRPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,7 +540,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5689013729553648406}
+    m_TransformParent: {fileID: 5691566339077307904}
     m_Modifications:
     - target: {fileID: 5587952277044085912, guid: 9ab8957d3512e4d41a36283aef00f4d5,
         type: 3}
@@ -560,7 +560,7 @@ PrefabInstance:
     - target: {fileID: 5587952277044085991, guid: 9ab8957d3512e4d41a36283aef00f4d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.15
+      value: -0.1500001
       objectReference: {fileID: 0}
     - target: {fileID: 5587952277044085991, guid: 9ab8957d3512e4d41a36283aef00f4d5,
         type: 3}
@@ -585,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 5587952277044085991, guid: 9ab8957d3512e4d41a36283aef00f4d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5587952277044085991, guid: 9ab8957d3512e4d41a36283aef00f4d5,
         type: 3}
