@@ -8,25 +8,30 @@ namespace HollowPoint
     {
         [SerializeField] GameObject bulletPrefab;
         [SerializeField] Transform muzzle;
-        public float force = 10f;
+        [SerializeField] float range = 1000f;
 
+        public float force = 10f;   //Temp?
 
-        void Update()
+        // void Update()
+        // {
+        //     RaycastHit hit;
+        //     int layermask = 1 << 8;
+        //     layermask = ~layermask;
+
+        //     if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, Mathf.Infinity, layermask))
+        //     {
+        //         if (hit.collider.CompareTag("Tower"))
+        //         {
+        //             hit.collider.GetComponent<WatchTowerScript>().shouldBeLit = true;
+        //         }
+        //     }
+
+        // }
+
+        public bool Raycast(out RaycastHit hit, LayerMask layer)
         {
-            RaycastHit hit;
-            int layermask = 1 << 8;
-            layermask = ~layermask;
-
-            if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, Mathf.Infinity, layermask))
-            {
-                if (hit.collider.CompareTag("Tower"))
-                {
-                    hit.collider.GetComponent<WatchTowerScript>().shouldBeLit = true;
-                }
-            }
-
+            return Physics.Raycast(muzzle.position, muzzle.forward, out hit, range, layer);
         }
-
 
         public void Shoot()
         {
