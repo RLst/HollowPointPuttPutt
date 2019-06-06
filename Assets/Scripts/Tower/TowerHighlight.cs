@@ -33,7 +33,7 @@ namespace HollowPoint
         void Awake()
         {
             //Find and store all towers
-            var towers = FindObjectsOfType<Tower>();    
+            towers = FindObjectsOfType<Tower>();    
 
             //Cache gun
             gun = GetComponentInChildren<Gun>();

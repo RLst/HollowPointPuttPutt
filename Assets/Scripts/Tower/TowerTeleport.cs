@@ -9,12 +9,15 @@ namespace HollowPoint
     {
         Gun gun;
         IInput input;
+        Tower currentTower;
 
-        UnityEvent OnTeleport;
+        [SerializeField] UnityEvent OnTeleport;
 
         void Awake()
         {
             gun = GetComponentInChildren<Gun>();
+            input = GetComponent<IInput>();
+            if (input == null) Debug.Log("no input found");
         }
 
         void Update()
@@ -24,14 +27,20 @@ namespace HollowPoint
             layermask = ~layermask;
             if (gun.Raycast<Tower>(out Tower hit, layermask) && input.fired)
             {
-                Teleport();
+
+                OnTeleport.Invoke();
+                //Do other teleport stuff here
+                GameObject player = GameObject.Find("OVRCameraRig");
+                player.GetComponent<FadeManager>().InitiateTeleport(hit.transform.position);
+                currentTower.GetComponent<Collider>().enabled = true;
+                currentTower = hit;
+                currentTower.GetComponent<Collider>().enabled = false;
             }
         }
 
         void Teleport()
         {
-            OnTeleport.Invoke();
-            //Do other teleport stuff here
+
         }
     }
 }
