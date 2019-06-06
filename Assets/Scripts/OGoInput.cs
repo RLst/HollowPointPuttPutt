@@ -4,7 +4,7 @@ namespace HollowPoint
     public class OGoInput : MonoBehaviour, IInput
     {
         //Direction
-        public Quaternion rotation => OVRInput.
+        public Quaternion rotation => OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTrackedRemote);
 
         //Touchpad axis
         public Vector2 axis => OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
