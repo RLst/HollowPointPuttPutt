@@ -32,7 +32,10 @@ public class Gun : MonoBehaviour
             if (towerHit == null)
                 Shoot();
             else
-                GameObject.Find("OVRCameraRig").transform.position = towerHit.transform.position;
+            {
+                GameObject player = GameObject.Find("OVRCameraRig");
+                player.GetComponent<FadeManager>().InitiateTeleport(towerHit.transform.position);
+            }
         }
         
 
