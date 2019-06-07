@@ -32,11 +32,11 @@ namespace HollowPoint
         public void Putt(Vector3 hitPoint, float gunPower)
         {
             OnHit.Invoke();
-            var trajectory = (transform.position - hitPoint).normalized;
+            var trajectory = (transform.position - hitPoint);
 
             //Prevent the ball from flying up
             trajectory.y = 0f;
-
+            Vector3.Normalize(trajectory);
             rb.AddForceAtPosition(gunPower * trajectory, hitPoint, forceMode);
         }
     }
