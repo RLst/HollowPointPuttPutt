@@ -33,12 +33,15 @@ namespace HollowPoint
 
                 //Draw trajectory line from the center of the ball
                 Vector3[] linePoints = { ball.transform.position, ball.transform.position + trajectory * lineLength };
+                trajectoryLine.enabled = true;
                 trajectoryLine.SetPositions(linePoints);
             }
             //Otherwise don't set the trajectory line
             else {
-                Vector3[] linePoints = { transform.position + transform.forward * 1f - transform.right * 1f, transform.position + transform.forward * 1f + transform.right * 1f };
-                trajectoryLine.SetPositions(linePoints);
+                //Turn off the line renderer
+                trajectoryLine.enabled = false;
+                //Vector3[] linePoints = { transform.position, transform.position };
+                //trajectoryLine.SetPositions(linePoints);
             }
         }
 

@@ -18,8 +18,7 @@ namespace HollowPoint
 
         void Update()
         {
-            if (input.fired)
-                Putt();
+            if (input.fire) Putt();
         }
 
         //Do the shooting
@@ -30,7 +29,8 @@ namespace HollowPoint
             //If a ball is hit then "putt" it
             if (gun.Raycast<Ball>(out Ball ballHit, out RaycastHit hitInfo, ballLayer))
             {
-                ballHit.Putt(hitInfo.point, gun.force);
+
+                ballHit.Putt(hitInfo.point, gun.power);
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeManager : MonoBehaviour
+public class TeleportController : MonoBehaviour
 {
     private OVRScreenFade screenFade;
 

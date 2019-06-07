@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Tony/DesignScene - Tony.unity
+    guid: 3fe570fcde2e64a42a2470b5c989607f
+  - enabled: 1
     path: Assets/Scenes/Tony/Debug - Tony.unity
     guid: c517ee6238274ec498d84e94735b761b
   m_configObjects: {}

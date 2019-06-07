@@ -1,12 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class SceneController : MonoBehaviour
+namespace HollowPoint
 {
-    public void ReloadCurrentScene()
+
+    public class SceneController : MonoBehaviour
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   //Just reload current scene
+        IInput input;
+
+        private void Awake()
+        {
+            input = GetComponent<IInput>();
+        }
+
+        private void Update()
+        {
+            if (input.wasBack)
+                ReloadCurrentScene();
+        }
+
+        public void ReloadCurrentScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   //Just reload current scene
+        }
     }
 }

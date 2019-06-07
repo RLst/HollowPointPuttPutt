@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace HollowPoint
 {
+    [SelectionBase]
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(SphereCollider))]
     public class Ball : MonoBehaviour
@@ -28,11 +29,15 @@ namespace HollowPoint
         }
 
         //"Putt" with the sniper rifle
-        public void Putt(Vector3 hitPoint, Vector3 gunForce)
+        public void Putt(Vector3 hitPoint, float gunPower)
         {
             OnHit.Invoke();
-            
-            rb.AddForceAtPosition(gunForce, hitPoint, forceMode);
+            var trajectory = (transform.position - hitPoint).normalized;
+
+            //trajectory.y = 0f;
+
+            rb.AddForceAtPosition(gunPower * trajectory, hitPoint, forceMode);
+            //rb.AddForce(gun)
         }
     }
 }

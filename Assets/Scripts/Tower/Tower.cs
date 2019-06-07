@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace HollowPoint
 {
-
+    [RequireComponent(typeof(BoxCollider))]
     public class Tower : MonoBehaviour
     {
         [SerializeField] Transform m_standPoint;
@@ -11,6 +11,14 @@ namespace HollowPoint
 
         private Color curColour = Color.white;
         public bool shouldBeLit = false;
+
+        Collider m_col;
+        public new Collider collider => m_col;
+
+        private void Awake()
+        {
+            m_col = GetComponent<Collider>();
+        }
 
         void Update()
         {
