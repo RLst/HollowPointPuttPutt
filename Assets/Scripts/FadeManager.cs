@@ -8,12 +8,12 @@ public class FadeManager : MonoBehaviour
 
     private float fadeTimer;
     private float fadeCountDown = 0;
-    private Vector3 nextPosition;
+    private Transform nextTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        nextPosition = transform.position;
+        nextTransform = transform;
         screenFade = GetComponentInChildren<OVRScreenFade>();
         fadeTimer = screenFade.fadeTime;
     }
@@ -28,17 +28,19 @@ public class FadeManager : MonoBehaviour
 
             fadeCountDown -= Time.deltaTime;
         }
-        else if (transform.position != nextPosition)
+        else if (transform.position != nextTransform.position)
         {
-            transform.position = nextPosition;
+            transform.SetPositionAndRotation(nextTransform.position, nextTransform.rotation);
+            
+            transform.position = nextTransform.position;
             screenFade.FadeIn();
             fadeCountDown = 0;
         }
     }
 
-    public void InitiateTeleport(Vector3 Position)
+    public void InitiateTeleport(Transform Position)
     {
         fadeCountDown = fadeTimer;
-        nextPosition = Position;
+        nextTransform = Position;
     }
 }

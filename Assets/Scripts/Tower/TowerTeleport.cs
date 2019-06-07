@@ -38,16 +38,11 @@ namespace HollowPoint
             if (gun.Raycast<Tower>(out Tower towerHit, layermask) && input.fired)
             {
                 OnTeleport.Invoke();
-
                 //Do other teleport stuff here
-                fadeManager.InitiateTeleport(towerHit.transform.position);
+                fadeManager.InitiateTeleport(towerHit.transform.Find("StandPoint"));
+                currentTower.GetComponent<Collider>().enabled = true;
                 currentTower = towerHit;
-
-                // GameObject player = GameObject.Find("OVRCameraRig");
-                // player.GetComponent<FadeManager>().InitiateTeleport(towerHit.transform.position);
-                // currentTower.GetComponent<Collider>().enabled = true;
-                // currentTower = towerHit;
-                // currentTower.GetComponent<Collider>().enabled = false;
+                currentTower.GetComponent<Collider>().enabled = false;
             }
         }
 
