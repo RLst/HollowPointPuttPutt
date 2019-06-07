@@ -4,14 +4,16 @@ namespace HollowPoint
 {
     public class KBInput : MonoBehaviour, IInput
     {
-        //Direction
-        [SerializeField] string hAxis = "Horizontal";
-        [SerializeField] string vAxis= "Vertical";
-        Vector2 mouseMovement;
+        //Direction from mouse movement (OGo look ~= Mouse movement)
+        [SerializeField] string hAxis = "Mouse X";
+        [SerializeField] string vAxis= "Mouse Y";
+        [SerializeField] float mouseSensitivity = 150f;
+        float xAxisClamp = 0f;
+        Transform rotObj;
         Quaternion m_rotation;
         public Quaternion rotation => m_rotation;
 
-        //Return mouse movement
+        //Return WASD (OGo touchpad ~= WASD)
         Vector2 m_axis;
         public Vector2 axis => m_axis;
 
@@ -44,8 +46,8 @@ namespace HollowPoint
 
         void Update()
         {
-            UpdateRotation();
-            UpdateMouseMovement();
+            UpdateInternalRotation();
+            // UpdateMouseMovement();
             UpdateAxes();
         }
 
@@ -55,20 +57,47 @@ namespace HollowPoint
             m_axis.y += Input.GetAxis(vAxis);
         }
 
-        private void UpdateMouseMovement()
-        {
-            Debug.Log("MouseMovement: " + mouseMovement);
-            // Debug.Log("LastMousePos: "+ lastMousePos);
-            mouseMovement = Input.mousePosition - lastMousePos;
-            lastMousePos = Input.mousePosition;
-        }
+        // private void UpdateMouseMovement()
+        // {
+        //     Debug.Log("MouseMovement: " + mouseMovement);
+        //     // Debug.Log("LastMousePos: "+ lastMousePos);
+        //     mouseMovement = Input.mousePosition - lastMousePos;
+        //     lastMousePos = Input.mousePosition;
+        // }
 
-        private void UpdateRotation()
+        // private void UpdateRotation()
+        // {
+            
+
+        //     var view = transform.forward;   //Dont' now about this
+        //     view.x += mouseMovement.x;
+        //     view.y += mouseMovement.y;
+        //     m_rotation.SetLookRotation(view);
+        // }
+
+        void UpdateInternalRotation()
         {
-            var view = transform.forward;   //Dont' now about this
-            view.x += mouseMovement.x;
-            view.y += mouseMovement.y;
-            m_rotation.SetLookRotation(view);
+            float mouseX = Input.GetAxis(hAxis) * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis(vAxis) * mouseSensitivity * Time.deltaTime;
+
+            //Do clamps and limits
+            xAxisClamp += mouseY;
+            Mathf.Clamp(xAxisClamp, -90f, 90f);
+            mouseY = 0f;
+            // ClampXAxisRotationToValue()
+
+            //Apply rotation to the internal rotation object
+            rotObj.transform.Rotate(Vector3.left * mouseY + Vector3.up * mouseX);
+
+            //Get the quaternion from the rotation object
+            m_rotation = rotObj.rotation;
+
+            void ClampXAxisRotationToValue(float value)
+            {
+                Vector3 eulerRotation = transform.eulerAngles;
+                eulerRotation.x = value;
+                transform.eulerAngles= eulerRotation;
+            }
         }
     }
 }

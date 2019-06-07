@@ -9,10 +9,12 @@ namespace HollowPoint
         [SerializeField] Transform muzzle;
         [SerializeField] float range = 1000f;
 
-        public float force = 10f;   //Temp?
+        public float power = 10f;   //Temp?
+
+        public Vector3 force => transform.forward * power;
 
 
-        public bool Raycast<T>(out T hitT, LayerMask layer) where T : MonoBehaviour
+        public bool Raycast<T>(out T hit, int layer = ~0) where T : MonoBehaviour
         {
             if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitObj, range, layer))
             {
@@ -21,24 +23,46 @@ namespace HollowPoint
                 if (hitComp != null)
                 {
                     //Object hit is of correct type; SUCCESS
-                    hitT = hitComp;
+                    hit = hitComp;
                     return true;
                 }
                 //Wrong type; FAIL
             }
             //Either nothing hit or object hit of wrong type; FAIL
-            hitT = null;
+            hit = null;
             return false;
         }
 
-        public void Shoot()
+        public bool Raycast<T>(out T hit, out RaycastHit hitInfo, int layer = ~0) where T : MonoBehaviour
         {
-            var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-
-            var bulletRB = bullet.GetComponent<Rigidbody>();
-
-            bulletRB.AddForce(transform.forward * force);
+            if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitObj, range, layer))
+            {
+                //Something hit, check to make sure that it's of type T
+                var hitComp = hitObj.collider.GetComponent<T>();
+                if (hitComp != null)
+                {
+                    //Object hit is of correct type; SUCCESS
+                    hit = hitComp;
+                    hitInfo = hitObj;
+                    return true;
+                }
+                //Wrong type; FAIL
+            }
+            
+            //Either nothing hit or object hit of wrong type; FAIL
+            hit = null;
+            hitInfo = new RaycastHit();
+            return false;
         }
+
+        // public void Shoot()
+        // {
+        //     var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+
+        //     var bulletRB = bullet.GetComponent<Rigidbody>();
+
+        //     bulletRB.AddForce(transform.forward * power);
+        // }
 
         //======================================
         void OnGUI()
@@ -51,7 +75,7 @@ namespace HollowPoint
         //--------- TEMP --------------
         public void SetGunForce(float _force)
         {
-            this.force = _force;
+            this.power = _force;
         }
     }
 }

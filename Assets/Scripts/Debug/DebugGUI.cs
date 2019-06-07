@@ -41,7 +41,7 @@ namespace HollowPoint.DB
 
         private void SetGunForce()
         {
-            gun.force = sliderGunForce.value;
+            gun.power = sliderGunForce.value;
         }
 
         private void SetOffset()
@@ -65,7 +65,7 @@ namespace HollowPoint.DB
             textZ.text = "Offset Z: " + offset.z.ToString();
 
             //Gun force
-            textGunForce.text = "Gun Force: " + gun.force.ToString();
+            textGunForce.text = "Gun Force: " + gun.power.ToString();
         }
 
         public void Reset()
