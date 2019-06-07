@@ -12,7 +12,7 @@ namespace HollowPoint
         public float force = 10f;   //Temp?
 
 
-        public bool Raycast<T>(out T hitT, LayerMask layer) where T : MonoBehaviour
+        public bool Raycast<T>(out T hit, LayerMask layer) where T : MonoBehaviour
         {
             if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitObj, range, layer))
             {
@@ -21,13 +21,13 @@ namespace HollowPoint
                 if (hitComp != null)
                 {
                     //Object hit is of correct type; SUCCESS
-                    hitT = hitComp;
+                    hit = hitComp;
                     return true;
                 }
                 //Wrong type; FAIL
             }
             //Either nothing hit or object hit of wrong type; FAIL
-            hitT = null;
+            hit = null;
             return false;
         }
 

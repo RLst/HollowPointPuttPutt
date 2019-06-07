@@ -7,8 +7,16 @@ namespace HollowPoint
     //Player controller
     public class Player : MonoBehaviour
     {
+        [SerializeField] float lookSensitivity = 150f;
+        [SerializeField] Transform cam;
         IInput input;
         Gun gun;
+
+
+        void Awake()
+        {
+            LockCursor();
+        }
 
         void Start()
         {
@@ -28,5 +36,19 @@ namespace HollowPoint
                 gun.Shoot();
             }
         }
+
+        void CameraRotation()
+        {
+            
+            transform.Rotate(transform.right * );
+        }
+
+
+
+        void LockCursor()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
     }
 }
