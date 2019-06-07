@@ -30,6 +30,7 @@ namespace HollowPoint
             {
                 //Get normalized trajectory vector
                 var trajectory = (ball.transform.position - hitInfo.point).normalized;
+                trajectory.y = 0;
 
                 //Draw trajectory line from the center of the ball
                 Vector3[] linePoints = { ball.transform.position, ball.transform.position + trajectory * lineLength };
@@ -40,8 +41,6 @@ namespace HollowPoint
             else {
                 //Turn off the line renderer
                 trajectoryLine.enabled = false;
-                //Vector3[] linePoints = { transform.position, transform.position };
-                //trajectoryLine.SetPositions(linePoints);
             }
         }
 

@@ -34,10 +34,10 @@ namespace HollowPoint
             OnHit.Invoke();
             var trajectory = (transform.position - hitPoint).normalized;
 
-            //trajectory.y = 0f;
+            //Prevent the ball from flying up
+            trajectory.y = 0f;
 
             rb.AddForceAtPosition(gunPower * trajectory, hitPoint, forceMode);
-            //rb.AddForce(gun)
         }
     }
 }
