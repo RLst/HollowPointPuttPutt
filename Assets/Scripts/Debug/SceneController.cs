@@ -14,7 +14,7 @@ namespace HollowPoint
 
         private void Update()
         {
-            if (input.wasBack)
+            if (input.backed)
                 ReloadCurrentScene();
         }
 

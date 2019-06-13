@@ -7,7 +7,7 @@ namespace HollowPoint
     public class Tower : MonoBehaviour
     {
         [SerializeField] Transform m_standPoint;
-        public Transform standPoint => standPoint;  //Read only
+        public Transform standPoint => m_standPoint;  //Read only
 
         private Color curColour = Color.white;
         public bool shouldBeLit = false;

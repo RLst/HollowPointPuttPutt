@@ -32,15 +32,15 @@ public class TeleportController : MonoBehaviour
         {
             transform.SetPositionAndRotation(nextTransform.position, nextTransform.rotation);
             
-            transform.position = nextTransform.position;
+            //transform.position = nextTransform.position;
             screenFade.FadeIn();
             fadeCountDown = 0;
         }
     }
 
-    public void InitiateTeleport(Transform Position)
+    public void InitiateTeleport(Transform towerTransform)
     {
         fadeCountDown = fadeTimer;
-        nextTransform = Position;
+        nextTransform = towerTransform;
     }
 }

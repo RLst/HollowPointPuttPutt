@@ -53,7 +53,7 @@ namespace HollowPoint
                     closest = Vector3.Distance(child.position, transform.position);
                 }
             }
-            Transform newTransform = currentTower.transform.Find("StandPoint");
+            Transform newTransform = currentTower.standPoint;
             transform.SetPositionAndRotation(newTransform.position, newTransform.rotation);
             currentTower.GetComponent<Collider>().enabled = false;
         }
@@ -63,11 +63,12 @@ namespace HollowPoint
             //If player is aiming at tower and pressing a specified button
             int layermask = 1 << 8;
             layermask = ~layermask;
-            if (gun.Raycast<Tower>(out Tower towerHit) && input.fire)
+            if (gun.Raycast<Tower>(out Tower towerHit, layermask) && input.fired)
             {
                 OnTeleport.Invoke();
                 //Do other teleport stuff here
-                fadeManager.InitiateTeleport(towerHit.transform.Find("StandPoint"));
+                //fadeManager.InitiateTeleport(towerHit.transform.Find("StandPoint"));
+                fadeManager.InitiateTeleport(towerHit.standPoint); // causes game to freeze
 
                 //Renable current tower
                 currentTower.GetComponent<Collider>().enabled = true;

@@ -9,6 +9,7 @@ namespace HollowPoint
         [SerializeField] LayerMask ballLayer;
         IInput input;
         Gun gun;
+        
 
         void Awake()
         {
@@ -18,7 +19,20 @@ namespace HollowPoint
 
         void Update()
         {
-            if (input.fire) Putt();
+            if (input.fired)
+            {
+                Putt();
+            }
+
+            //if (input.fire && !wasFired)
+            //{
+            //    Putt();
+            //    wasFired = true;
+            //}
+            //else if(!input.fire && wasFired)
+            //{
+            //    wasFired = false;
+            //}
         }
 
         //Do the shooting

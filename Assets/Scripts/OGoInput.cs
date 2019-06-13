@@ -15,10 +15,8 @@ namespace HollowPoint
             get {
                 if (OVRInput.Get(OVRInput.Button.One) && !clickFlag)
                 {
-                    clickFlag = true;
                     return true;
                 }
-                clickFlag = false;
                 return false; } }
         bool clickFlag = false;
 
@@ -28,10 +26,8 @@ namespace HollowPoint
             get {
                 if (OVRInput.Get(OVRInput.Touch.One) && !touchFlag)
                 {
-                    touchFlag = true;
                     return true;
                 }
-                touchFlag = false;
                 return false; } }
         bool touchFlag = false;
 
@@ -41,10 +37,8 @@ namespace HollowPoint
             get {
                 if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && !firedFlag)
                 {
-                    firedFlag = true;
                     return true;
                 }
-                firedFlag = false;
                 return false; } }
         bool firedFlag = false;
 
@@ -53,10 +47,8 @@ namespace HollowPoint
             get {
                 if (OVRInput.Get(OVRInput.Button.Two) && !backFlag)
                 {
-                    backFlag = true;
                     return true;
                 }
-                backFlag = false;
                 return false; } }
         bool backFlag = false;
         
@@ -69,6 +61,15 @@ namespace HollowPoint
         void Update()
         {
             OVRInput.Update();  //Must be run each frame
+            
+        }
+
+        private void LateUpdate()
+        {
+            clickFlag = click;
+            touchFlag = touch;
+            firedFlag = fire;
+            backFlag = back;
         }
     }
 }
