@@ -20,6 +20,6 @@ public interface IInput
 
     //Back button
     bool back { get; }
-    bool wasBack { get; }
+    bool backed { get; }
 }
 }

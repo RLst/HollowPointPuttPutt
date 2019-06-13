@@ -36,7 +36,7 @@ namespace HollowPoint
 
         public bool back => Input.GetKey(backKey);
 
-        public bool wasBack => Input.GetKeyDown(backKey);
+        public bool backed => Input.GetKeyDown(backKey);
 
 
         void Start()

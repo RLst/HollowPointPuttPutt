@@ -11,21 +11,55 @@ namespace HollowPoint
 
         //Touchpad click
         public bool click => OVRInput.Get(OVRInput.Button.One);
-        public bool clicked => OVRInput.GetDown(OVRInput.Button.One);
+        public bool clicked {
+            get {
+                if (OVRInput.Get(OVRInput.Button.One) && !clickFlag)
+                {
+                    clickFlag = true;
+                    return true;
+                }
+                clickFlag = false;
+                return false; } }
+        bool clickFlag = false;
 
         //Touchpad touch
         public bool touch => OVRInput.Get(OVRInput.Touch.One);
-        public bool touched => OVRInput.GetDown(OVRInput.Touch.One);
-
+        public bool touched {
+            get {
+                if (OVRInput.Get(OVRInput.Touch.One) && !touchFlag)
+                {
+                    touchFlag = true;
+                    return true;
+                }
+                touchFlag = false;
+                return false; } }
+        bool touchFlag = false;
 
         //Trigger
         public bool fire => OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger);
-
-        public bool fired => OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
+        public bool fired {
+            get {
+                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && !firedFlag)
+                {
+                    firedFlag = true;
+                    return true;
+                }
+                firedFlag = false;
+                return false; } }
+        bool firedFlag = false;
 
         public bool back => OVRInput.Get(OVRInput.Button.Two);
-
-        public bool wasBack => OVRInput.GetDown(OVRInput.Button.Two);
+        public bool backed {
+            get {
+                if (OVRInput.Get(OVRInput.Button.Two) && !backFlag)
+                {
+                    backFlag = true;
+                    return true;
+                }
+                backFlag = false;
+                return false; } }
+        bool backFlag = false;
+        
 
         void FixedUpdate()
         {
