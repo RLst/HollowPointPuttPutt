@@ -189,7 +189,7 @@ MonoBehaviour:
     type: 3}
   muzzle: {fileID: 5587952276050605104}
   range: 1000
-  force: 10
+  power: 20
 --- !u!1001 &5587952277189784516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 810233977655943001}
     m_Modifications:
+    - target: {fileID: 1000012862578554, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
+      propertyPath: m_Name
+      value: AWP
+      objectReference: {fileID: 0}
     - target: {fileID: 4000012830030280, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -240,10 +244,6 @@ PrefabInstance:
     - target: {fileID: 4000012830030280, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012862578554, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}
-      propertyPath: m_Name
-      value: AWP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f4782715127e0841ae71924b3ec6084, type: 3}

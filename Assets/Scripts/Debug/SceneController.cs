@@ -22,5 +22,10 @@ namespace HollowPoint
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   //Just reload current scene
         }
+
+        public void LoadNextScene()
+        {
+            // 
+        }
     }
 }

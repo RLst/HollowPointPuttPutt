@@ -40,6 +40,13 @@ namespace HollowPoint
                     return true;
                 }
                 return false; } }
+        public bool fireReleased {
+            get {
+                if (!OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && firedFlag)
+                {
+                    return true;
+                }
+                return false; } }
         bool firedFlag = false;
 
         public bool back => OVRInput.Get(OVRInput.Button.Two);

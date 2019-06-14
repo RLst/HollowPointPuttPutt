@@ -74,6 +74,7 @@ namespace HollowPoint
                 currentTower.GetComponent<Collider>().enabled = true;
                 currentTower = towerHit;
                 currentTower.GetComponent<Collider>().enabled = false;
+                gun.powerup = false;
             }
         }
 

@@ -7,13 +7,13 @@ namespace HollowPoint
     {
         [SerializeField] UnityEvent OnPutt;
         [SerializeField] LayerMask ballLayer;
-        IInput input;
+        OGoInput input;
         Gun gun;
-        
+       
 
         void Awake()
         {
-            input = GetComponent<IInput>();
+            input = GetComponent<OGoInput>();
             gun = GetComponentInChildren<Gun>();
         }
 
@@ -21,7 +21,13 @@ namespace HollowPoint
         {
             if (input.fired)
             {
+                gun.powerup = true;
+            }
+
+            if(input.fireReleased && gun.powerup)
+            {
                 Putt();
+                gun.powerup = false;
             }
 
             //if (input.fire && !wasFired)
@@ -44,7 +50,7 @@ namespace HollowPoint
             if (gun.Raycast<Ball>(out Ball ballHit, out RaycastHit hitInfo, ballLayer))
             {
 
-                ballHit.Putt(hitInfo.point, gun.power);
+                ballHit.Putt(hitInfo.point, gun.force);
             }
         }
     }

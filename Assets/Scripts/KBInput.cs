@@ -30,6 +30,7 @@ namespace HollowPoint
         public bool fire => Input.GetKey(fireKey);
 
         public bool fired => Input.GetKeyDown(fireKey);
+        
 
         [SerializeField] KeyCode backKey = KeyCode.Backspace;
         private Vector3 lastMousePos;

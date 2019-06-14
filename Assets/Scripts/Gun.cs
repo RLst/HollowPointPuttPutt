@@ -9,9 +9,22 @@ namespace HollowPoint
         [SerializeField] Transform muzzle;
         [SerializeField] float range = 1000f;
 
-        public float power = 10f;   //Temp?
+        private float powerScalar;
+        private int scaleDir = 1; // 1 or -1
+        [Tooltip("How Much Power the Shot Has With a Scalar of 1")]
+        [Range(1, 100)]
+        public float power = 10f;
+        [Tooltip("The Minimum Power Scale to be used in a Shot")]
+        [Range(0, 10)]
+        public float minPowerScalar = 0.5f;
+        [Tooltip("The Minimum Power to be used in a Shot")]
+        [Range(1, 50)]
+        public float maxPowerScalar = 10.0f; // how high power scale should go
 
-        public Vector3 force => transform.forward * power;
+        [HideInInspector]
+        public bool powerup = false;
+
+        public float force => power * powerScalar;
 
 
         public bool Raycast<T>(out T hit, int layer = ~0) where T : MonoBehaviour
@@ -72,10 +85,36 @@ namespace HollowPoint
             GUILayout.Label("Primary Hand Trigger: " + Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger"));
         }
 
+        void Start()
+        {
+            powerScalar = minPowerScalar;
+        }
+        void Update()
+        {
+            if(powerup)
+            {
+                powerScalar += ((Time.deltaTime * 0.01f) / maxPowerScalar * 100) * scaleDir;
+                if(powerScalar > maxPowerScalar || powerScalar < minPowerScalar)
+                {
+                    scaleDir = -scaleDir;
+                    powerScalar = Mathf.Clamp(powerScalar, minPowerScalar, maxPowerScalar);
+                }
+                
+            }
+            else
+            {
+                scaleDir = 1;
+                powerScalar = 1;
+            }
+
+        }
+
         //--------- TEMP --------------
         public void SetGunForce(float _force)
         {
             this.power = _force;
         }
+
+       
     }
 }
