@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 namespace HollowPoint
 {
     public class Gun : MonoBehaviour
@@ -8,6 +10,8 @@ namespace HollowPoint
         [SerializeField] GameObject bulletPrefab;
         [SerializeField] Transform muzzle;
         [SerializeField] float range = 1000f;
+        
+        [SerializeField] Image ChargePanel;
 
         private float powerScalar;
         private int scaleDir = 1; // 1 or -1
@@ -20,8 +24,7 @@ namespace HollowPoint
         [Tooltip("The Minimum Power to be used in a Shot")]
         [Range(1, 50)]
         public float maxPowerScalar = 10.0f; // how high power scale should go
-
-        [HideInInspector]
+        
         public bool powerup = false;
 
         public float force => power * powerScalar;
@@ -93,7 +96,8 @@ namespace HollowPoint
         {
             if(powerup)
             {
-                powerScalar += ((Time.deltaTime * 0.01f) / maxPowerScalar * 100) * scaleDir;
+                powerScalar += (maxPowerScalar * Time.deltaTime ) * scaleDir;
+                ChargePanel.fillAmount = powerScalar / maxPowerScalar;
                 if(powerScalar > maxPowerScalar || powerScalar < minPowerScalar)
                 {
                     scaleDir = -scaleDir;
@@ -105,6 +109,7 @@ namespace HollowPoint
             {
                 scaleDir = 1;
                 powerScalar = 1;
+                ChargePanel.fillAmount = 0;
             }
 
         }

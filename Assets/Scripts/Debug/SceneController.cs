@@ -25,7 +25,8 @@ namespace HollowPoint
 
         public void LoadNextScene()
         {
-            // 
+            //temp: reload the scene instead of loading the game end
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
