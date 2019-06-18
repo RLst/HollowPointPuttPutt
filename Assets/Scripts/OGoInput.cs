@@ -68,7 +68,6 @@ namespace HollowPoint
         void Update()
         {
             OVRInput.Update();  //Must be run each frame
-            
         }
 
         private void LateUpdate()

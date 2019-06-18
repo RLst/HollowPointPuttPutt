@@ -29,16 +29,6 @@ namespace HollowPoint
                 Putt();
                 gun.powerup = false;
             }
-
-            //if (input.fire && !wasFired)
-            //{
-            //    Putt();
-            //    wasFired = true;
-            //}
-            //else if(!input.fire && wasFired)
-            //{
-            //    wasFired = false;
-            //}
         }
 
         //Do the shooting

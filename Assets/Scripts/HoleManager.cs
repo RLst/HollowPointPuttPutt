@@ -8,25 +8,6 @@ namespace HollowPoint
     {
         [SerializeField] GameObject curSet;
         [SerializeField] TeleportController playerTeleporter;
-        [SerializeField] GameObject musicPlayer;
-        
-
-
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            if(!musicPlayer)
-            {
-                GameObject temp = GameObject.Find("Music Player");
-                if (temp != null) musicPlayer = temp;
-            }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        }
 
         public Vector3 ChangeHole(GameObject nextSet)
         {
@@ -42,7 +23,7 @@ namespace HollowPoint
                     child.gameObject.GetComponent<BoxCollider>().enabled = true;
                 }
                 playerTeleporter.InitiateTeleport(curSet.transform.Find("watchTower (1)").GetComponent<Tower>().standPoint); // temporary teleport code
-                musicPlayer.transform.position = curSet.transform.parent.position;
+                MusicPlayer.instance.transform.position = curSet.transform.parent.position;
                 return curSet.transform.parent.position;
             }
             else
