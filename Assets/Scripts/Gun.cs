@@ -71,15 +71,6 @@ namespace HollowPoint
             return false;
         }
 
-        // public void Shoot()
-        // {
-        //     var bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-
-        //     var bulletRB = bullet.GetComponent<Rigidbody>();
-
-        //     bulletRB.AddForce(transform.forward * power);
-        // }
-
         //======================================
         void OnGUI()
         {

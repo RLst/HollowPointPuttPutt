@@ -17,6 +17,7 @@ public interface IInput
     //Trigger
     bool fire { get; }
     bool fired { get; }
+    bool fireReleased { get; }
 
     //Back button
     bool back { get; }

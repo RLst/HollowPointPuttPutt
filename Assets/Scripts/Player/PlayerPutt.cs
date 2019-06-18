@@ -7,7 +7,7 @@ namespace HollowPoint
     {
         [SerializeField] UnityEvent OnPutt;
         [SerializeField] LayerMask ballLayer;
-        OGoInput input;
+        IInput input;
         Gun gun;
        
 

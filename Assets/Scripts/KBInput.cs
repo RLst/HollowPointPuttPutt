@@ -28,8 +28,8 @@ namespace HollowPoint
 
         [SerializeField] KeyCode fireKey = KeyCode.Mouse0;
         public bool fire => Input.GetKey(fireKey);
-
         public bool fired => Input.GetKeyDown(fireKey);
+        public bool fireReleased => Input.GetKeyUp(fireKey);
         
 
         [SerializeField] KeyCode backKey = KeyCode.Backspace;
