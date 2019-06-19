@@ -9,7 +9,7 @@ namespace HollowPoint
     public class Hole : MonoBehaviour
     {
         [SerializeField] UnityEvent OnSink;
-        [SerializeField] GameObject nextSet;
+        [SerializeField] HoleSetStats nextSet;
         [SerializeField] HoleManager holeManager;
 
         void Start()
@@ -26,6 +26,7 @@ namespace HollowPoint
             {
                 col.gameObject.transform.position = nextPos;
                 col.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<CapsuleCollider>().enabled = false;
             }
             else
                 Destroy(col.gameObject);

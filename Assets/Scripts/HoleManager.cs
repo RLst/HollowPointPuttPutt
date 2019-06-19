@@ -6,11 +6,11 @@ namespace HollowPoint
 {
     public class HoleManager : MonoBehaviour
     {
-        [SerializeField] GameObject curSet;
+        [SerializeField] HoleSetStats curSet;
         [SerializeField] TeleportController playerTeleporter;
         [SerializeField] GameObject musicPlayer;
-        
 
+        private int overallScore = 0;
 
 
         // Start is called before the first frame update
@@ -28,22 +28,18 @@ namespace HollowPoint
         {
         }
 
-        public Vector3 ChangeHole(GameObject nextSet)
+        public Vector3 ChangeHole(HoleSetStats nextSet)
         {
+            overallScore = curSet.Par;
             if (nextSet != null)
             {
-                foreach (Transform child in curSet.transform)
-                {
-                    child.gameObject.GetComponent<BoxCollider>().enabled = false;
-                }
+                curSet.toggleColliders(false);
                 curSet = nextSet;
-                foreach (Transform child in curSet.transform)
-                {
-                    child.gameObject.GetComponent<BoxCollider>().enabled = true;
-                }
-                playerTeleporter.InitiateTeleport(curSet.transform.Find("watchTower (1)").GetComponent<Tower>().standPoint); // temporary teleport code
-                musicPlayer.transform.position = curSet.transform.parent.position;
-                return curSet.transform.parent.position;
+                curSet.toggleColliders(true);
+                
+                playerTeleporter.InitiateTeleport(curSet.getPlayerStartPoint());
+                
+                return curSet.transform.position;
             }
             else
             {
