@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 namespace HollowPoint
 {
@@ -19,17 +20,38 @@ namespace HollowPoint
 
         void Update()
         {
+            HandlePutting();
+            HandleBulletSwitching();
+        }
+
+        private void HandleBulletSwitching()
+        {
+            //Next bullet
+            if (input.axis.y > 0 && input.touched)
+            {
+                gun.NextBullet();
+            }
+            //Prev bullet
+            else if (input.axis.y < 0 && input.touched)
+            {
+                gun.PrevBullet();
+            }
+        }
+
+        private void HandlePutting()
+        {
             if (input.fired)
             {
                 gun.powerup = true;
             }
 
-            if(input.fireReleased && gun.powerup)
+            if (input.fireReleased && gun.powerup)
             {
                 Putt();
                 gun.powerup = false;
             }
         }
+
 
         //Do the shooting
         public void Putt()

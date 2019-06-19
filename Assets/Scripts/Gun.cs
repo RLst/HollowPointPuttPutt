@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace HollowPoint
-{
-    public class Gun : MonoBehaviour
+{     public class Gun : MonoBehaviour
     {
-        [SerializeField] GameObject bulletPrefab;
+        [Header("Bullets")]
         [SerializeField] Transform muzzle;
-        [SerializeField] float range = 1000f;
+        [SerializeField] List<Bullet> bullets = new List<Bullet>();
+        Bullet currentBullet;
+        UnityEvent OnBulletSwitch;
         
-        [SerializeField] Image ChargePanel;
+        [SerializeField] float range = 1000f;
+        [SerializeField] Image chargePanel;
+
 
         private float powerScalar;
         private int scaleDir = 1; // 1 or -1
@@ -24,8 +28,8 @@ namespace HollowPoint
         [Tooltip("The Minimum Power to be used in a Shot")]
         [Range(1, 50)]
         public float maxPowerScalar = 10.0f; // how high power scale should go
-        
         public bool powerup = false;
+        private int bulletIndex;
 
         public float force => power * powerScalar;
 
@@ -71,46 +75,61 @@ namespace HollowPoint
             return false;
         }
 
-        //======================================
-        void OnGUI()
+
+        void Awake()
         {
-            GUILayout.Label("Gun");
-            GUILayout.Space(5);
-            GUILayout.Label("Primary Hand Trigger: " + Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger"));
+            //Set initial bullet
+            if (bullets.Count > 0)
+                currentBullet = bullets[0];
         }
 
         void Start()
         {
             powerScalar = minPowerScalar;
         }
+
         void Update()
         {
             if(powerup)
             {
                 powerScalar += (maxPowerScalar * Time.deltaTime ) * scaleDir;
-                ChargePanel.fillAmount = powerScalar / maxPowerScalar;
+                chargePanel.fillAmount = powerScalar / maxPowerScalar;
                 if(powerScalar > maxPowerScalar || powerScalar < minPowerScalar)
                 {
                     scaleDir = -scaleDir;
                     powerScalar = Mathf.Clamp(powerScalar, minPowerScalar, maxPowerScalar);
                 }
-                
             }
             else
             {
                 scaleDir = 1;
                 powerScalar = 1;
-                ChargePanel.fillAmount = 0;
+                chargePanel.fillAmount = 0;
             }
 
         }
 
-        //--------- TEMP --------------
-        public void SetGunForce(float _force)
+        public void NextBullet()
         {
-            this.power = _force;
+            bulletIndex++;
+            if (bulletIndex > bullets.Count-1) bulletIndex = 0; //Wrap around
+            currentBullet = bullets[bulletIndex];
         }
 
-       
+        public void PrevBullet()
+        {
+            bulletIndex--;
+            if (bulletIndex < 0) bulletIndex = bullets.Count-1; //Wrap around
+            currentBullet = bullets[bulletIndex];
+        }
+
+     
+        //======================================
+        // void OnGUI()
+        // {
+        //     GUILayout.Label("Gun");
+        //     GUILayout.Space(5);
+        //     GUILayout.Label("Primary Hand Trigger: " + Input.GetAxis("Oculus_CrossPlatform_PrimaryHandTrigger"));
+        // }
     }
 }

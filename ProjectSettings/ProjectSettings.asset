@@ -155,6 +155,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.AIE.HollowPointPuttPutt
     Standalone: com.oculus.UnitySample
+    WebGL: com.oculus.UnitySample
     iOS: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
@@ -393,6 +394,9 @@ PlayerSettings:
     m_Devices:
     - Oculus
   - m_BuildTarget: iOS
+    m_Enabled: 1
+    m_Devices: []
+  - m_BuildTarget: WebGL
     m_Enabled: 1
     m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
