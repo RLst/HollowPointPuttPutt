@@ -9,7 +9,7 @@ namespace HollowPoint
     public class Hole : MonoBehaviour
     {
         [SerializeField] UnityEvent OnSink;
-        [SerializeField] GameObject nextSet;
+        [SerializeField] HoleSetStats nextSet;
         [SerializeField] HoleManager holeManager;
 
         void Start()

@@ -1,30 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HollowPoint
 {
     public class HoleManager : MonoBehaviour
     {
-        [SerializeField] GameObject curSet;
+        [SerializeField] HoleSetStats curSet;
         [SerializeField] TeleportController playerTeleporter;
+        [SerializeField] GameObject musicPlayer;
+        [SerializeField] Text shotPar;
 
-        public Vector3 ChangeHole(GameObject nextSet)
+        private int overallScore = 0;
+        private int shotsThisHole = 0;
+
+        // Start is called before the first frame update
+        void Start()
         {
+            shotPar.text = "Shots: 0 | Par: " + curSet.Par;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        }
+
+        public Vector3 ChangeHole(HoleSetStats nextSet)
+        {
+            overallScore = shotsThisHole - curSet.Par;
+            shotsThisHole = 0;
             if (nextSet != null)
             {
-                foreach (Transform child in curSet.transform)
-                {
-                    child.gameObject.GetComponent<BoxCollider>().enabled = false;
-                }
+                curSet.toggleColliders(false);
                 curSet = nextSet;
-                foreach (Transform child in curSet.transform)
-                {
-                    child.gameObject.GetComponent<BoxCollider>().enabled = true;
-                }
-                playerTeleporter.InitiateTeleport(curSet.transform.Find("watchTower (1)").GetComponent<Tower>().standPoint); // temporary teleport code
-                MusicPlayer.instance.transform.position = curSet.transform.parent.position;
-                return curSet.transform.parent.position;
+                curSet.toggleColliders(true);
+                
+                playerTeleporter.InitiateTeleport(curSet.getPlayerStartPoint());
+                shotPar.text = shotPar.text = "Shots: 0 | Par: " + curSet.Par;
+                return curSet.transform.position;
             }
             else
             {
@@ -33,5 +47,12 @@ namespace HollowPoint
                 return Vector3.zero;
             }
         }
+
+        public void addShot(int shots = 1)
+        {
+            shotsThisHole += shots;
+            shotPar.text = "Shots: " + shotsThisHole + " | Par: " + curSet.Par;
+        }
     }
+
 }
