@@ -7,6 +7,7 @@ namespace HollowPoint
     {
         [SerializeField] UnityEvent OnPutt;
         [SerializeField] LayerMask ballLayer;
+        [SerializeField] HoleManager holeManager;
         IInput input;
         Gun gun;
        
@@ -49,7 +50,7 @@ namespace HollowPoint
             //If a ball is hit then "putt" it
             if (gun.Raycast<Ball>(out Ball ballHit, out RaycastHit hitInfo, ballLayer))
             {
-
+                holeManager.addShot();
                 ballHit.Putt(hitInfo.point, gun.force);
             }
         }

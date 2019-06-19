@@ -26,7 +26,6 @@ namespace HollowPoint
             {
                 col.gameObject.transform.position = nextPos;
                 col.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GetComponent<CapsuleCollider>().enabled = false;
             }
             else
                 Destroy(col.gameObject);
