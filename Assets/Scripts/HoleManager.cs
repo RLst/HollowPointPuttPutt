@@ -58,8 +58,8 @@ namespace HollowPoint
 
         public Vector3 ChangeHole(HoleSetStats nextSet)
         {
-            shots.Add(shotsThisHole);
-            overallScore = shotsThisHole - curSet.Par;
+            shots.Add(shotsThisHole - curSet.Par);
+            overallScore += shotsThisHole - curSet.Par;
             shotsThisHole = 0;
             if (nextSet != null)
             {
@@ -93,11 +93,15 @@ namespace HollowPoint
             {
                 scoreCardText += par + " | ";
             }
-            scoreCardText.Remove(scoreCardText.LastIndexOf("|"));
-            scoreCardText += "\n Shots:\t";
+            scoreCardText += "\n Score:\t";
             foreach(int score in shots)
             {
-                scoreCardText += score + " | ";
+                if(score > 0)
+                    scoreCardText += "+" + score + "|";
+                else if(score < 0)
+                    scoreCardText += score + "|";
+                else
+                    scoreCardText += score + "| ";
             }
             ScoreCard.transform.Find("Stats").GetComponent<Text>().text = scoreCardText;
             scoreCardCountdown = scoreCardTimer;

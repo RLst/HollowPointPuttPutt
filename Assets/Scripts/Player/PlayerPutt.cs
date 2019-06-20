@@ -8,27 +8,36 @@ namespace HollowPoint
         [SerializeField] UnityEvent OnPutt;
         [SerializeField] LayerMask ballLayer;
         [SerializeField] HoleManager holeManager;
+        [SerializeField] GameObject ball;
         IInput input;
         Gun gun;
-       
+
+        Transform gunPrevParent;
 
         void Awake()
         {
             input = GetComponent<OGoInput>();
             gun = GetComponentInChildren<Gun>();
+            gunPrevParent = gun.transform.parent;
         }
 
         void Update()
         {
-            if (input.fired)
+            if (input.fired && ball.GetComponent<Rigidbody>().velocity.magnitude < 0.25f)
             {
                 gun.powerup = true;
+                gunPrevParent = gun.transform.parent;
+                if(!gun.transform.parent.Equals(transform))
+                    gun.transform.SetParent(transform); //this is a really bad way to do this
             }
 
             if(input.fireReleased && gun.powerup)
             {
                 Putt();
                 gun.powerup = false;
+                gun.transform.SetParent(gunPrevParent);
+                gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
+                gunPrevParent = null;
             }
         }
 
