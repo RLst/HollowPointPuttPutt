@@ -14,7 +14,7 @@ namespace HollowPoint
 
         void Awake()
         {
-            ovrcamrig = GetComponent<OVRCameraRig>();
+            ovrcamrig = GetComponentInChildren<OVRCameraRig>();
             gun = GetComponentInChildren<Gun>();
             input = GetComponent<IInput>();
         }
@@ -64,7 +64,7 @@ namespace HollowPoint
             if (rightHanded)
             {
                 gun.transform.SetParent(ovrcamrig.rightHandAnchor);
-                gun.transform.localPosition.Set(RHgunOffset.x, RHgunOffset.y, RHgunOffset.z);   
+                gun.transform.localPosition.Set(RHgunOffset.x, RHgunOffset.y, RHgunOffset.z);
             }
             else
             {
@@ -72,6 +72,12 @@ namespace HollowPoint
                 //X position inverted
                 gun.transform.localPosition.Set(-RHgunOffset.x, RHgunOffset.y, RHgunOffset.z);
             }
+            PrintLocalPosition();
+        }
+
+        void PrintLocalPosition()
+        {
+            Debug.Log("LocalPosition: " + gun.transform.localPosition);
         }
     }
 }

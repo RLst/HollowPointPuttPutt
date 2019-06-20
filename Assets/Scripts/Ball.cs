@@ -11,8 +11,6 @@ namespace HollowPoint
     public class Ball : MonoBehaviour
     {
         [SerializeField] ForceMode forceMode = ForceMode.Impulse;
-        [SerializeField] float mass = 100f; //Ball needs to be heavy to resist the gun force
-        // [SerializeField] float radius;
         [SerializeField] UnityEvent OnHit;
 
         private Rigidbody rb;
@@ -22,10 +20,6 @@ namespace HollowPoint
         {
             rb = GetComponent<Rigidbody>();
             col = GetComponent<Collider>();
-        }
-        void Start()
-        {
-            rb.mass = mass;
         }
 
         //"Putt" with the sniper rifle

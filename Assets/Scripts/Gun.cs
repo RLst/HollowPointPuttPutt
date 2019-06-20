@@ -106,7 +106,6 @@ namespace HollowPoint
                 powerScalar = 1;
                 chargePanel.fillAmount = 0;
             }
-
         }
 
         public void NextBullet()

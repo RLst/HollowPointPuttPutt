@@ -11,7 +11,7 @@ namespace HollowPoint
         IInput input;
         Tower currentTower;
         Player player;
-        TeleportController fadeManager;
+        TeleportController teleporter;
         int holeNumber = 1;
 
         [SerializeField] UnityEvent OnTeleport;
@@ -22,18 +22,16 @@ namespace HollowPoint
             input = GetComponent<IInput>();
             if (input == null) Debug.Log("no input found");
             player = GetComponent<Player>();
-            fadeManager = GetComponent<TeleportController>();
+            teleporter = GetComponent<TeleportController>();
         }
 
         void Start()
         {
             //find all towers
-            var towerArr = (Resources.FindObjectsOfTypeAll(typeof(Tower))) as Tower[];
-            List<Tower> towerList = new List<Tower>(towerArr);
+            // var towerArr = (Resources.FindObjectsOfTypeAll(typeof(Tower))) as Tower[];
+            // List<Tower> towerList = new List<Tower>(towerArr);
             //sort by distance
             //towerList.Sort(x, y) => Vector3.Distance((Tower)x.transform.pos)
-
-
 
             //Set the current tower
             //currentTower = FindObjectOfType<Tower>();
@@ -68,7 +66,7 @@ namespace HollowPoint
                 OnTeleport.Invoke();
                 //Do other teleport stuff here
                 //fadeManager.InitiateTeleport(towerHit.transform.Find("StandPoint"));
-                fadeManager.InitiateTeleport(towerHit.standPoint); // causes game to freeze
+                teleporter.InitiateTeleport(towerHit.standPoint); // causes game to freeze
 
                 //Renable current tower
                 currentTower.GetComponent<Collider>().enabled = true;

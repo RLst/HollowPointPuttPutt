@@ -47,9 +47,9 @@ namespace HollowPoint
 
         void Update()
         {
-            UpdateInternalRotation();
-            // UpdateMouseMovement();
             UpdateAxes();
+            // UpdateInternalRotation();
+            // UpdateMouseMovement();
         }
 
         private void UpdateAxes()
@@ -76,29 +76,29 @@ namespace HollowPoint
         //     m_rotation.SetLookRotation(view);
         // }
 
-        void UpdateInternalRotation()
-        {
-            float mouseX = Input.GetAxis(hAxis) * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis(vAxis) * mouseSensitivity * Time.deltaTime;
+        // void UpdateInternalRotation()
+        // {
+        //     float mouseX = Input.GetAxis(hAxis) * mouseSensitivity * Time.deltaTime;
+        //     float mouseY = Input.GetAxis(vAxis) * mouseSensitivity * Time.deltaTime;
 
-            //Do clamps and limits
-            xAxisClamp += mouseY;
-            Mathf.Clamp(xAxisClamp, -90f, 90f);
-            mouseY = 0f;
-            // ClampXAxisRotationToValue()
+        //     //Do clamps and limits
+        //     xAxisClamp += mouseY;
+        //     Mathf.Clamp(xAxisClamp, -90f, 90f);
+        //     mouseY = 0f;
+        //     // ClampXAxisRotationToValue()
 
-            //Apply rotation to the internal rotation object
-            rotObj.transform.Rotate(Vector3.left * mouseY + Vector3.up * mouseX);
+        //     //Apply rotation to the internal rotation object
+        //     rotObj.transform.Rotate(Vector3.left * mouseY + Vector3.up * mouseX);
 
-            //Get the quaternion from the rotation object
-            m_rotation = rotObj.rotation;
+        //     //Get the quaternion from the rotation object
+        //     m_rotation = rotObj.rotation;
 
-            void ClampXAxisRotationToValue(float value)
-            {
-                Vector3 eulerRotation = transform.eulerAngles;
-                eulerRotation.x = value;
-                transform.eulerAngles= eulerRotation;
-            }
-        }
+        //     void ClampXAxisRotationToValue(float value)
+        //     {
+        //         Vector3 eulerRotation = transform.eulerAngles;
+        //         eulerRotation.x = value;
+        //         transform.eulerAngles= eulerRotation;
+        //     }
+        // }
     }
 }
