@@ -28,7 +28,7 @@ namespace HollowPoint
                 gun.powerup = true;
                 gunPrevParent = gun.transform.parent;
                 if(!gun.transform.parent.Equals(transform))
-                    gun.transform.SetParent(transform); //this is a really bad way to do this
+                    gun.transform.SetParent(transform); //this is going to ruin everything
             }
 
             if(input.fireReleased && gun.powerup)
@@ -37,7 +37,6 @@ namespace HollowPoint
                 gun.powerup = false;
                 gun.transform.SetParent(gunPrevParent);
                 gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
-                gunPrevParent = null;
             }
         }
 
