@@ -29,9 +29,9 @@ namespace HollowPoint
             if (gun.Raycast<Ball>(out Ball ball, out RaycastHit hitInfo))
             {
                 //Get normalized trajectory vector
-                var trajectory = (ball.transform.position - hitInfo.point).normalized;
+                var trajectory = (ball.transform.position - hitInfo.point);
                 trajectory.y = 0;
-
+                Vector3.Normalize(trajectory);
                 //Draw trajectory line from the center of the ball
                 Vector3[] linePoints = { ball.transform.position, ball.transform.position + trajectory * lineLength };
                 trajectoryLine.enabled = true;
