@@ -15,7 +15,7 @@ namespace HollowPoint
         public GameObject towers;
 
         [SerializeField]
-        public GameObject hole;
+        public Hole hole;
 
         [SerializeField]
         [Range(2, 12)]

@@ -384,8 +384,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  nextSet: {fileID: 1492343963}
   holeManager: {fileID: 320650298}
+  nextSet: {fileID: 1492343963}
 --- !u!136 &20364555
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: {fileID: 1256146969}
-  hole: {fileID: 20364551}
+  hole: {fileID: 20364554}
   par: 3
 --- !u!1001 &139766609
 PrefabInstance:
@@ -1598,8 +1598,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  nextSet: {fileID: 1362946277}
   holeManager: {fileID: 320650298}
+  nextSet: {fileID: 1362946277}
 --- !u!136 &170985698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2580,8 +2580,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  nextSet: {fileID: 120471504}
   holeManager: {fileID: 320650298}
+  nextSet: {fileID: 120471504}
 --- !u!136 &316072816
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2803,8 +2803,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curSet: {fileID: 1312603646}
   playerTeleporter: {fileID: 938835899}
-  musicPlayer: {fileID: 2064863455}
+  musicPlayer: {fileID: 1327381862}
   shotPar: {fileID: 1002943281078710778}
+  ScoreCard: {fileID: 961951128}
+  scoreCardTimer: 5
 --- !u!1 &333004235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5934,8 +5936,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  nextSet: {fileID: 1497761185}
   holeManager: {fileID: 320650298}
+  nextSet: {fileID: 1497761185}
 --- !u!136 &710914152
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6694,8 +6696,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  nextSet: {fileID: 120471504}
   holeManager: {fileID: 320650298}
+  nextSet: {fileID: 120471504}
 --- !u!82 &805351280
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7747,6 +7749,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944025467}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &961951128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 961951128, guid: e6165482d95cb98428561601748dab47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1876104715}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &986108706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9225,7 +9233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: {fileID: 2073291200}
-  hole: {fileID: 316072812}
+  hole: {fileID: 316072815}
   par: 3
 --- !u!1001 &1134986323
 PrefabInstance:
@@ -10621,8 +10629,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  nextSet: {fileID: 0}
   holeManager: {fileID: 320650298}
+  nextSet: {fileID: 0}
 --- !u!136 &1252166851
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11312,8 +11320,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: {fileID: 2008530700}
-  hole: {fileID: 805351274}
+  hole: {fileID: 805351279}
   par: 2
+--- !u!1 &1327381862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5301948994150872419, guid: 43dc3d031b2ee924dae17d7ead4e53bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5301948992690152892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342908503
 GameObject:
   m_ObjectHideFlags: 0
@@ -11843,7 +11857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: {fileID: 656349502}
-  hole: {fileID: 1252166847}
+  hole: {fileID: 1252166850}
   par: 6
 --- !u!1 &1368167266
 GameObject:
@@ -12885,7 +12899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: {fileID: 32019540}
-  hole: {fileID: 710914148}
+  hole: {fileID: 710914151}
   par: 5
 --- !u!1 &1497761183
 GameObject:
@@ -12953,7 +12967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers: {fileID: 605348210}
-  hole: {fileID: 170985694}
+  hole: {fileID: 170985697}
   par: 4
 --- !u!1001 &1519904139
 PrefabInstance:
