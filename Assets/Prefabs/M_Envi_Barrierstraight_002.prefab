@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4527923322702121109}
   - component: {fileID: 4527923322702891189}
   - component: {fileID: 4527923322703891061}
+  - component: {fileID: 7562120610920040193}
   m_Layer: 0
-  m_Name: M_Envi_Barrierstraight_001 1
+  m_Name: M_Envi_Barrierstraight_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7562120610920040193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527923322701894837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.5, z: 4.000001}
+  m_Center: {x: 0, y: 0.25, z: 0}
