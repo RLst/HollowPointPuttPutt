@@ -5,11 +5,19 @@ namespace HollowPoint
 {
     public class TowerHideable : MonoBehaviour
     {
-        public new MeshRenderer renderer;
+        MeshRenderer rend;
+        Collider col;
 
         void Start()
         {
-            renderer = GetComponent<MeshRenderer>();
+            rend = GetComponent<MeshRenderer>();
+            col = GetComponent<Collider>();
+        }
+
+        public void SetHidden(bool active)
+        {
+            rend.enabled = active;
+            col.enabled = active;
         }
     }
 }

@@ -52,7 +52,7 @@ namespace HollowPoint
         {
             foreach (var h in hideables)
             {
-                h.renderer.enabled = true;
+                h.SetHidden(true);
             }
         }
     }

@@ -46,7 +46,7 @@ namespace HollowPoint
                     var hideableHit = hitInfo.collider.GetComponent<TowerHideable>();
                     if (hideableHit == hideable)
                     {
-                        hideable.renderer.enabled = false;
+                        hideable.SetHidden(false);
                     }
                 }
             }
