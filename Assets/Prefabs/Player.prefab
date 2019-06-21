@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 2194061467320004961}
   - component: {fileID: 8406650472802434478}
   - component: {fileID: 5237854256517102062}
-  - component: {fileID: 503383386}
   - component: {fileID: 4510764436106532822}
   - component: {fileID: 2500804153364501827}
   - component: {fileID: 9136561496476602176}
@@ -460,27 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b15bc31e883f94b80959ecf3bfe9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trajectoryLine: {fileID: 0}
   lineLength: 5
---- !u!114 &503383386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4621825355720429172}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 833683b356da34141bb1622a0aea7360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hAxis: Mouse X
-  vAxis: Mouse Y
-  mouseSensitivity: 150
-  touchKey: 325
-  clickKey: 324
-  fireKey: 323
-  backKey: 8
 --- !u!114 &4510764436106532822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +467,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4621825355720429172}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02f9f89a0611855439f78c2ced3c76db, type: 3}
   m_Name: 
@@ -547,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightHanded: 1
+  LOffsetX: -0.43
 --- !u!82 &615721528669401777
 AudioSource:
   m_ObjectHideFlags: 0
@@ -785,7 +765,7 @@ MonoBehaviour:
   _headPoseRelativeOffsetRotation: {x: 0, y: 0, z: 0}
   _headPoseRelativeOffsetTranslation: {x: 0, y: 0, z: 0}
   profilerTcpPort: 32419
-  expandMixedRealityCapturePropertySheet: 0
+  expandMixedRealityCapturePropertySheet: 1
   enableMixedReality: 0
   compositionMethod: 0
   extraHiddenLayers:

@@ -18185,24 +18185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 503383386, guid: 2a353c4e0fa888d409416cf4c7376812, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 635368042047000177, guid: 2a353c4e0fa888d409416cf4c7376812,
+    - target: {fileID: 4621825355720429172, guid: 2a353c4e0fa888d409416cf4c7376812,
         type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4510764436106532822, guid: 2a353c4e0fa888d409416cf4c7376812,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621825355713379230, guid: 2a353c4e0fa888d409416cf4c7376812,
-        type: 3}
-      propertyPath: expandMixedRealityCapturePropertySheet
-      value: 1
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4621825355720397402, guid: 2a353c4e0fa888d409416cf4c7376812,
         type: 3}
@@ -18259,18 +18245,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4621825355720429172, guid: 2a353c4e0fa888d409416cf4c7376812,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237854256517102062, guid: 2a353c4e0fa888d409416cf4c7376812,
-        type: 3}
-      propertyPath: trajectoryLine
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 503383386, guid: 2a353c4e0fa888d409416cf4c7376812, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a353c4e0fa888d409416cf4c7376812, type: 3}
 --- !u!1001 &5301948992690152892
 PrefabInstance:

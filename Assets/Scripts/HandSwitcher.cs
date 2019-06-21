@@ -6,15 +6,15 @@ namespace HollowPoint
     public class HandSwitcher : MonoBehaviour
     {
         [SerializeField] bool rightHanded = true;
-        Gun gun;
+        [SerializeField] float LOffsetX;
 
-        // OVRCameraRig ovrcamrig;
+        Gun gun;
         Vector3 ROffset;
+        Vector3 LOffset;
         IInput input;
 
         void Awake()
         {
-            // ovrcamrig = GetComponentInChildren<OVRCameraRig>();
             gun = GetComponentInChildren<Gun>();
             input = GetComponent<IInput>();
         }
@@ -23,7 +23,8 @@ namespace HollowPoint
         {
             //Get starting offset (must be right handed)
             ROffset = gun.transform.localPosition;
-            Debug.Log("Right hand gun offset x: " + ROffset.x);
+            LOffset = ROffset;
+            LOffset.x = LOffsetX;
 
             //NOTE! Oculus go always uses the right hand controller!
             //Make sure it's childed to the right hand initially
@@ -43,7 +44,6 @@ namespace HollowPoint
             {
                 if (!rightHanded)
                 {
-                    // rightHanded = true;
                     ToggleHand();
                 }
             }
@@ -52,7 +52,6 @@ namespace HollowPoint
             {
                 if (rightHanded)
                 {
-                    // rightHanded = false;
                     ToggleHand();
                 }
             }
@@ -63,27 +62,22 @@ namespace HollowPoint
             //Toggle hand
             rightHanded = !rightHanded;
 
-            Vector3 newLocalPos;
             //Set new offset and parent to the correct anchor on the camera rig
             if (rightHanded)
             {
-                newLocalPos = new Vector3(ROffset.x, ROffset.y, ROffset.z);
-                gun.transform.localPosition = newLocalPos;
-                // gun.transform.localPosition.Set(1, ROffset.y, ROffset.z);
+                gun.transform.localPosition = ROffset;
             }
             else
             {
                 //X position inverted
-                newLocalPos = new Vector3(-ROffset.x, ROffset.y, ROffset.z);
-                gun.transform.localPosition = newLocalPos;
-                // gun.transform.localPosition.Set(-1, ROffset.y, ROffset.z);
+                gun.transform.localPosition = LOffset;
             }
         }
 
-        void PrintPositions()
-        {
-            Debug.Log("LocalPosition x: " + gun.transform.localPosition.x);
-            Debug.Log("Position x: " + gun.transform.position.x);
-        }
+        //void PrintPositions()
+        //{
+        //    Debug.Log("LocalPosition x: " + gun.transform.localPosition.x);
+        //    Debug.Log("Position x: " + gun.transform.position.x);
+        //}
     }
 }
