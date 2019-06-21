@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5951827669532700524}
   - component: {fileID: 3186185688796214306}
   - component: {fileID: 2521236605128378104}
+  - component: {fileID: 4601955632849146893}
   m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
@@ -74,6 +75,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1949997, y: 2.665, z: 0.52000004}
   m_Center: {x: 0.000000059604645, y: 1.3325, z: 0}
+--- !u!114 &4601955632849146893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951827669532700515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f9f89a0611855439f78c2ced3c76db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5951827670159071618
 PrefabInstance:
   m_ObjectHideFlags: 0

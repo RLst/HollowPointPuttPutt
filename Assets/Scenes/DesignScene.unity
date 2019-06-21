@@ -2672,7 +2672,7 @@ PrefabInstance:
     - target: {fileID: 5689013729553507044, guid: e6165482d95cb98428561601748dab47,
         type: 3}
       propertyPath: m_Name
-      value: VRPlayer
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5689013729553612484, guid: e6165482d95cb98428561601748dab47,
         type: 3}
@@ -9008,6 +9008,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8611591992624439059, guid: f160ee8f74bb3fd40ba313ced86a0aea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f160ee8f74bb3fd40ba313ced86a0aea, type: 3}
 --- !u!4 &427159143 stripped
@@ -10234,6 +10239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611591992624439059, guid: f160ee8f74bb3fd40ba313ced86a0aea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f160ee8f74bb3fd40ba313ced86a0aea, type: 3}
@@ -14629,12 +14639,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731058769}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.251173
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.12558651, z: -0.00000011920929}
 --- !u!23 &731058772
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15702,12 +15712,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805351274}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.3283148
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.16415739, z: -0.00000011920929}
 --- !u!23 &805351276
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23518,6 +23528,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.825
       objectReference: {fileID: 0}
+    - target: {fileID: 8611591992624439059, guid: f160ee8f74bb3fd40ba313ced86a0aea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f160ee8f74bb3fd40ba313ced86a0aea, type: 3}
 --- !u!4 &1251121456 stripped
@@ -24629,12 +24644,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296597283}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.3091788
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.15458941, z: -0.00000011920929}
 --- !u!23 &1296597286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26135,12 +26150,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353512602}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.2930317
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.14651585, z: -0.00000011920929}
 --- !u!23 &1353512605
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30053,13 +30068,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2064863456, guid: 43dc3d031b2ee924dae17d7ead4e53bb, type: 3}
-      propertyPath: music
-      value: 
-      objectReference: {fileID: 8300000, guid: 1ea2bab3ba2b475418ad804dce3d5770, type: 3}
     - target: {fileID: 5301948994150872412, guid: 43dc3d031b2ee924dae17d7ead4e53bb,
         type: 3}
       propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ea2bab3ba2b475418ad804dce3d5770, type: 3}
+    - target: {fileID: 2064863456, guid: 43dc3d031b2ee924dae17d7ead4e53bb, type: 3}
+      propertyPath: music
       value: 
       objectReference: {fileID: 8300000, guid: 1ea2bab3ba2b475418ad804dce3d5770, type: 3}
     m_RemovedComponents: []
@@ -38221,6 +38236,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.825
       objectReference: {fileID: 0}
+    - target: {fileID: 8611591992624439059, guid: f160ee8f74bb3fd40ba313ced86a0aea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f160ee8f74bb3fd40ba313ced86a0aea, type: 3}
 --- !u!4 &2026843616 stripped
@@ -40994,11 +41014,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 306920701147137242, guid: bdc0f28c26de8984ab7664646f97afeb,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dac29e5e3cd722b48a67c444fcb15007, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc0f28c26de8984ab7664646f97afeb, type: 3}
 --- !u!1001 &778477702446853261

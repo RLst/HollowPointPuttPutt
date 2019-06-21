@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &11758680
 AudioListener:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -1334,6 +1334,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689013729553507042, guid: e6165482d95cb98428561601748dab47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689013729552101656, guid: e6165482d95cb98428561601748dab47,
+        type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689013729552101656, guid: e6165482d95cb98428561601748dab47,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6165482d95cb98428561601748dab47, type: 3}
@@ -6174,6 +6189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793013190}
   - component: {fileID: 1793013189}
+  - component: {fileID: 1793013191}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -6208,6 +6224,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1793013191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793013188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f9f89a0611855439f78c2ced3c76db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1820222193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7865,5 +7893,20 @@ PrefabInstance:
       propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1793013189}
+    - target: {fileID: 832824442333198578, guid: f14218ed1f3be6849801c5454b36127a,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 832824442333198578, guid: f14218ed1f3be6849801c5454b36127a,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 832824442333198578, guid: f14218ed1f3be6849801c5454b36127a,
+        type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: DesignScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f14218ed1f3be6849801c5454b36127a, type: 3}

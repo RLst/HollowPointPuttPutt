@@ -9,6 +9,7 @@ namespace HollowPoint
         Collider col;
         OVRCameraRig camRig;
         Gun gun;
+        IInput input;
 
         public UnityEvent OnHit;
 
@@ -17,14 +18,16 @@ namespace HollowPoint
             col = GetComponent<Collider>();
             camRig = GameObject.FindGameObjectWithTag("Player").GetComponent<OVRCameraRig>();
             gun = camRig.GetComponentInChildren<Gun>();
+            input = GetComponent<IInput>();
         }
 
         private void Update()
         {
             if (gun.Raycast<DiegeticButton>(out DiegeticButton buttonHit))
             {
-                if (buttonHit == this)
-                    OnHit.Invoke();
+                if (input.fired)
+                    if (buttonHit == this)
+                        OnHit.Invoke();
             }
         }
 
