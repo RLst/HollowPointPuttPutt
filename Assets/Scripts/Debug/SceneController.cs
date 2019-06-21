@@ -40,5 +40,15 @@ namespace HollowPoint
             //temp: reload the scene instead of loading the game end
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        public void LoadScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
+        public void QuitApp()
+        {
+            Application.Quit();
+        }
     }
 }

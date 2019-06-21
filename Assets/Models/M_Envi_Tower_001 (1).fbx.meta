@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 03b3f725b2c1d6f4faf332285ed0227a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Back_pole_left
+    100002: Back_pole_right
+    100004: Back_wall
+    100006: Bottom_poles
+    100008: Buttom_platform
+    100010: Front_side
+    100012: Left_pole
+    100014: Left_side
+    100016: //RootNode
+    100018: Right_pole
+    100020: Right_side
+    100022: Roof
+    100024: Top_platform
+    100026: Tower_base
+    100028: Wood_beams
+    400000: Back_pole_left
+    400002: Back_pole_right
+    400004: Back_wall
+    400006: Bottom_poles
+    400008: Buttom_platform
+    400010: Front_side
+    400012: Left_pole
+    400014: Left_side
+    400016: //RootNode
+    400018: Right_pole
+    400020: Right_side
+    400022: Roof
+    400024: Top_platform
+    400026: Tower_base
+    400028: Wood_beams
+    2100000: lambert2
+    2300000: Back_pole_left
+    2300002: Back_pole_right
+    2300004: Back_wall
+    2300006: Bottom_poles
+    2300008: Buttom_platform
+    2300010: Front_side
+    2300012: Left_pole
+    2300014: Left_side
+    2300016: Right_pole
+    2300018: Right_side
+    2300020: Roof
+    2300022: Top_platform
+    2300024: Wood_beams
+    3300000: Back_pole_left
+    3300002: Back_pole_right
+    3300004: Back_wall
+    3300006: Bottom_poles
+    3300008: Buttom_platform
+    3300010: Front_side
+    3300012: Left_pole
+    3300014: Left_side
+    3300016: Right_pole
+    3300018: Right_side
+    3300020: Roof
+    3300022: Top_platform
+    3300024: Wood_beams
+    4300000: Back_pole_right
+    4300002: Back_pole_left
+    4300004: Roof
+    4300006: Back_wall
+    4300008: Top_platform
+    4300010: Buttom_platform
+    4300012: Wood_beams
+    4300014: Bottom_poles
+    4300016: Front_side
+    4300018: Right_side
+    4300020: Left_side
+    4300022: Right_pole
+    4300024: Left_pole
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
