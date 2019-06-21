@@ -38,23 +38,28 @@ namespace HollowPoint
 
         private void HandleHandSwitching()
         {
-            //DEBUG
-            //Right hand
-            if (input.axis.x > 0 && input.touched || Input.GetKeyDown(KeyCode.RightArrow))
+            if (input.axis.y < 0.5f && input.clicked)
             {
-                if (!rightHanded)
-                {
-                    ToggleHand();
-                }
+                ToggleHand();
             }
-            //Left hand
-            else if (input.axis.x < 0 && input.touched || Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if (rightHanded)
-                {
-                    ToggleHand();
-                }
-            }
+
+            // //DEBUG
+            // //Right hand
+            // if (input.axis.x > 0 && input.clicked || Input.GetKeyDown(KeyCode.RightArrow))
+            // {
+            //     if (!rightHanded)
+            //     {
+            //         ToggleHand();
+            //     }
+            // }
+            // //Left hand
+            // else if (input.axis.x < 0 && input.clicked || Input.GetKeyDown(KeyCode.LeftArrow))
+            // {
+            //     if (rightHanded)
+            //     {
+            //         ToggleHand();
+            //     }
+            // }
         }
 
         public void ToggleHand()

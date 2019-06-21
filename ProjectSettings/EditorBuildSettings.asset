@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Tony/Tony - BulletSystem.unity
-    guid: d21813af644738d4f9d008c62da85e21
+  m_Scenes: []
   m_configObjects: {}

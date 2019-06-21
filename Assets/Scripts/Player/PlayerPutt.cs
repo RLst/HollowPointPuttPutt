@@ -68,7 +68,6 @@ namespace HollowPoint
             }
             else if(gun.transform.parent.Equals(transform))
             {
-
                 gun.transform.SetParent(gunPrevParent);
                 gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
             }
