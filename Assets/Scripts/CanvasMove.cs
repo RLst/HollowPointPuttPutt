@@ -18,7 +18,9 @@ public class CanvasMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.LookAt(mainCamera.transform);
-        this.transform.position = Vector3.MoveTowards(transform.position, destinationObject.transform.position, moveSpeed * Time.deltaTime);
+        Vector3 lTargetDir = transform.position - mainCamera.transform.position;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lTargetDir), moveSpeed * Time.deltaTime);
+
+        transform.position = Vector3.Lerp(transform.position, destinationObject.transform.position, moveSpeed * Time.deltaTime);
     }
 }
