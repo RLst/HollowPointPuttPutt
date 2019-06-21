@@ -9,6 +9,7 @@ namespace HollowPoint
     {
         [SerializeField] float sphereCastRadius = 0.5f;
 
+        OVRCameraRig camRig;
         Transform centerEyeAnchor;
         Tower currentTower;     //Hopefully this is a pointer
 
@@ -16,9 +17,17 @@ namespace HollowPoint
 
         void Awake()
         {
-            centerEyeAnchor = FindObjectOfType<OVRCameraRig>().centerEyeAnchor;
-            currentTower = centerEyeAnchor.gameObject.GetComponent<TowerTeleport>().currentTower;
             tower = GetComponent<Tower>();
+            camRig = GameObject.FindGameObjectWithTag("Player").GetComponent<OVRCameraRig>();
+            // centerEyeAnchor = OVRManager.instance.GetComponent<OVRCameraRig>().centerEyeAnchor;
+            // centerEyeAnchor = FindObjectOfType<ovrmang>().centerEyeAnchor;
+        }
+
+        void Start()
+        {
+            centerEyeAnchor = camRig.centerEyeAnchor;
+            currentTower = camRig.GetComponent<TowerTeleport>().currentTower;
+            // currentTower = centerEyeAnchor.gameObject.GetComponent<TowerTeleport>().currentTower;
         }
 
         void Update()

@@ -15119,6 +15119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5689013729553507044, guid: e6165482d95cb98428561601748dab47,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5689013729553612484, guid: e6165482d95cb98428561601748dab47,
         type: 3}
       propertyPath: m_LocalPosition.x
