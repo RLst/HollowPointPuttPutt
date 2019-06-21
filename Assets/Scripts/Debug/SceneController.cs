@@ -7,15 +7,27 @@ namespace HollowPoint
     {
         IInput input;
 
+        const float timer = 3;
+        float countdown;
+
+        public bool backtest = false;
+
         private void Awake()
         {
+            countdown = timer;
             input = GetComponent<IInput>();
         }
 
         private void Update()
         {
-            if (input.backed)
-                ReloadCurrentScene();
+            if (input.back)
+            {
+                countdown -= Time.deltaTime;
+                if(countdown <= 0)
+                    ReloadCurrentScene();
+            }
+            else
+                countdown = timer;
         }
 
         public void ReloadCurrentScene()

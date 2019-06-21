@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tony/Debug - Tony.unity
     guid: c517ee6238274ec498d84e94735b761b
+  - enabled: 0
+    path: Assets/Scenes/UITest.unity
+    guid: 41ddc8418928b5b4c8d1e2528a4ae4d5
   m_configObjects: {}

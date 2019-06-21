@@ -37,13 +37,21 @@ namespace HollowPoint
                     if (!gun.transform.parent.Equals(transform))
                         gun.transform.SetParent(transform); //this is going to ruin everything
                 }
-
-                if (!input.fire && gun.powerup)
+                if(gun.powerup)
                 {
-                    Putt();
-                    gun.powerup = false;
-                    gun.transform.SetParent(gunPrevParent);
-                    gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
+                    if (input.backed)
+                    {
+                        gun.powerup = false;
+                        gun.transform.SetParent(gunPrevParent);
+                        gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
+                    }
+                    if(!input.fire)
+                    {
+                        Putt();
+                        gun.powerup = false;
+                        gun.transform.SetParent(gunPrevParent);
+                        gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
+                    }
                 }
             }
             else if(gun.transform.parent.Equals(transform))
