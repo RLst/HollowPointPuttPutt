@@ -15,6 +15,7 @@ namespace HollowPoint
 
         private Rigidbody rb;
         private Collider col;
+        
 
         void Awake()
         {

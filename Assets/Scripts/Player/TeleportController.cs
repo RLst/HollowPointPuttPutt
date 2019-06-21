@@ -7,10 +7,9 @@ public class TeleportController : MonoBehaviour
     private OVRScreenFade screenFade;
 
     private float fadeTimer;
-    private float fadeCountDown = 0;
+    public float fadeCountDown = 0;
     private Transform nextTransform;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         nextTransform = transform;
@@ -18,7 +17,6 @@ public class TeleportController : MonoBehaviour
         fadeTimer = screenFade.fadeTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(fadeCountDown > 0)

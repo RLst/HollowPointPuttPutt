@@ -33,6 +33,7 @@ namespace HollowPoint
 
         public float force => power * powerScalar;
 
+        public Transform frozenPosition;
 
         public bool Raycast<T>(out T hit, int layer = ~0) where T : MonoBehaviour
         {
