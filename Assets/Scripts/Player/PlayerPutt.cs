@@ -38,7 +38,7 @@ namespace HollowPoint
                         gun.transform.SetParent(transform); //this is going to ruin everything
                 }
 
-                if (input.fireReleased && gun.powerup)
+                if (!input.fire && gun.powerup)
                 {
                     Putt();
                     gun.powerup = false;

@@ -13,6 +13,8 @@ namespace HollowPoint
         [SerializeField] Text shotPar;
         [SerializeField] GameObject ScoreCard;
 
+        IInput input;
+
         [Range(0, 10)]
         public float scoreCardTimer = 3;
         private float scoreCardCountdown = 0;
@@ -28,6 +30,7 @@ namespace HollowPoint
         // Start is called before the first frame update
         void Start()
         {
+            input = GetComponent<OGoInput>();
             shotPar.text = "Shots: 0 | Par: " + curSet.Par;
             bool listFull = false;
             HoleSetStats listHole = curSet;
@@ -50,7 +53,11 @@ namespace HollowPoint
 
         void Update()
         {
-            if (scoreCardCountdown > 0)
+            if (input.click 
+                && input.axis.y < 0.5f && input.axis.y > -0.5f
+                && input.axis.x < 0.5f && input.axis.x > -0.5f)
+                ScoreCard.SetActive(true);
+            else if (scoreCardCountdown > 0)
                 scoreCardCountdown -= Time.deltaTime;
             else
                 ScoreCard.SetActive(false);
@@ -58,8 +65,9 @@ namespace HollowPoint
 
         public Vector3 ChangeHole(HoleSetStats nextSet)
         {
-            shots.Add(shotsThisHole - curSet.Par);
+            shots.Add(shotsThisHole);
             overallScore += shotsThisHole - curSet.Par;
+            printScoreCard();
             shotsThisHole = 0;
             if (nextSet != null)
             {
@@ -69,7 +77,6 @@ namespace HollowPoint
                 
                 playerTeleporter.InitiateTeleport(curSet.getPlayerStartPoint());
                 shotPar.text = shotPar.text = "Shots: 0 | Par: " + curSet.Par;
-                printScoreCard();
                 return curSet.transform.position;
             }
             else
@@ -96,12 +103,7 @@ namespace HollowPoint
             scoreCardText += "\n Score:\t";
             foreach(int score in shots)
             {
-                if(score > 0)
-                    scoreCardText += "+" + score + "|";
-                else if(score < 0)
-                    scoreCardText += score + "|";
-                else
-                    scoreCardText += score + "| ";
+                scoreCardText += score + " | ";
             }
             ScoreCard.transform.Find("Stats").GetComponent<Text>().text = scoreCardText;
             scoreCardCountdown = scoreCardTimer;
