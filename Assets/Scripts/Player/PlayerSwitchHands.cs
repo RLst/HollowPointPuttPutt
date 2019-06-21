@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace HollowPoint
 {
-    public class HandSwitcher : MonoBehaviour
+    public class PlayerSwitchHands : MonoBehaviour
     {
         [SerializeField] bool rightHanded = true;
         [SerializeField] float LOffsetX;
