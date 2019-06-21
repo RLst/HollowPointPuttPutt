@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tony/DesignScene - Tony.unity
     guid: 3fe570fcde2e64a42a2470b5c989607f
   - enabled: 0
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UITest.unity
     guid: 41ddc8418928b5b4c8d1e2528a4ae4d5
+  - enabled: 1
+    path: Assets/Scenes/DesignScene.unity
+    guid: 253614872e01f92439916a41fa1a603e
   m_configObjects: {}
