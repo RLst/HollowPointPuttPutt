@@ -38,7 +38,7 @@ namespace HollowPoint
         public void LoadNextScene()
         {
             //temp: reload the scene instead of loading the game end
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(0);
         }
 
         public void LoadScene(string sceneName)

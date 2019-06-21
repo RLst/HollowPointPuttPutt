@@ -156,6 +156,7 @@ PlayerSettings:
     Android: com.AIE.HollowPointPuttPutt
     Standalone: com.oculus.UnitySample
     iOS: com.oculus.UnitySample
+    tvOS: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 21
@@ -393,6 +394,9 @@ PlayerSettings:
     m_Devices:
     - Oculus
   - m_BuildTarget: iOS
+    m_Enabled: 1
+    m_Devices: []
+  - m_BuildTarget: tvOS
     m_Enabled: 1
     m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
