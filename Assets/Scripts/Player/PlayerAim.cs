@@ -3,13 +3,14 @@ namespace HollowPoint
 {
     public class PlayerAim : MonoBehaviour
     {
-        [SerializeField] LineRenderer trajectoryLine;
         [SerializeField] float lineLength = 5f;
         Gun gun;
+        LineRenderer trajectoryLine;
 
         void Awake()
         {
             gun = GetComponentInChildren<Gun>();
+            trajectoryLine = GetComponent<LineRenderer>();
         }
 
         void Start()
