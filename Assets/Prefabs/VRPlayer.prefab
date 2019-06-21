@@ -806,8 +806,6 @@ GameObject:
   - component: {fileID: 5689013727962392864}
   - component: {fileID: 8050527560269765968}
   - component: {fileID: 917856944}
-  - component: {fileID: 6061406933041458257}
-  - component: {fileID: 9113294763265384174}
   m_Layer: 0
   m_Name: VRPlayer
   m_TagString: Untagged
@@ -1162,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b15bc31e883f94b80959ecf3bfe9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineLength: 5
+  lineLength: 3
 --- !u!114 &8050527560269765968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,48 +1231,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6061406933041458257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5689013729553507044}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d62ec4876c493db4da7375993f804e14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTeleport:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5761599203404865591}
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 094a5a5c2e8bd3049bdce4a679b2a3cd,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &9113294763265384174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5689013729553507044}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6a83f073ac76d46bc72628789a3243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeCountDown: 0
 --- !u!1 &5689013729553507046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1475,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5629671679865904442, guid: 9ab8957d3512e4d41a36283aef00f4d5,
+        type: 3}
+      propertyPath: chargePanel
+      value: 
+      objectReference: {fileID: 5124908368155653260}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab8957d3512e4d41a36283aef00f4d5, type: 3}
 --- !u!4 &4748848002809606862 stripped

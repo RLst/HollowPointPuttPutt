@@ -8,7 +8,8 @@ namespace HollowPoint
     public class HoleManager : MonoBehaviour
     {
         [SerializeField] HoleSetStats curSet;
-        [SerializeField] TeleportController playerTeleporter;
+        // [SerializeField] TeleportController playerTeleporter;
+        [SerializeField] PlayerTeleport playerTeleporter;
         [SerializeField] GameObject musicPlayer;
         [SerializeField] Text shotPar;
         [SerializeField] GameObject ScoreCard;

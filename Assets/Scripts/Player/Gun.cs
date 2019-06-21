@@ -10,13 +10,14 @@ namespace HollowPoint
         [Header("Bullets")]
         [SerializeField] Transform muzzle;
         [SerializeField] List<Bullet> bullets = new List<Bullet>();
-        Bullet currentBullet;
+        [SerializeField] float range = 1000f;
+        public Bullet currentBullet;    //public for GUI access (lazy)
+        private int bulletIndex;
         UnityEvent OnBulletSwitch;
         
-        [SerializeField] float range = 1000f;
+        
+        //Charge
         [SerializeField] Image chargePanel;
-
-
         private float powerScalar;
         private int scaleDir = 1; // 1 or -1
         [Tooltip("How Much Power the Shot Has With a Scalar of 1")]
@@ -28,12 +29,11 @@ namespace HollowPoint
         [Tooltip("The Minimum Power to be used in a Shot")]
         [Range(1, 50)]
         public float maxPowerScalar = 10.0f; // how high power scale should go
-        public bool powerup = false;
-        private int bulletIndex;
+        public bool powerup = false;    //Gun trigger being held down
+
 
         public float force => power * powerScalar;
 
-        public Transform frozenPosition;
 
         public bool Raycast<T>(out T hit, int layer = ~0) where T : MonoBehaviour
         {
@@ -93,8 +93,10 @@ namespace HollowPoint
         {
             if(powerup)
             {
-                powerScalar += (maxPowerScalar * Time.deltaTime ) * scaleDir;
+                powerScalar += (maxPowerScalar * Time.deltaTime) * scaleDir;
                 chargePanel.fillAmount = powerScalar / maxPowerScalar;
+
+                //Switch power scale directions
                 if(powerScalar > maxPowerScalar || powerScalar < minPowerScalar)
                 {
                     scaleDir = -scaleDir;
@@ -111,6 +113,8 @@ namespace HollowPoint
 
         public void NextBullet()
         {
+            OnBulletSwitch.Invoke();
+            
             bulletIndex++;
             if (bulletIndex > bullets.Count-1) bulletIndex = 0; //Wrap around
             currentBullet = bullets[bulletIndex];
@@ -118,6 +122,8 @@ namespace HollowPoint
 
         public void PrevBullet()
         {
+            OnBulletSwitch.Invoke();
+
             bulletIndex--;
             if (bulletIndex < 0) bulletIndex = bullets.Count-1; //Wrap around
             currentBullet = bullets[bulletIndex];
