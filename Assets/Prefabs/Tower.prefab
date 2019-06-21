@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 8611591992624439058}
   - component: {fileID: 8611591992624439059}
   - component: {fileID: 68710636}
+  - component: {fileID: 1401972881113392295}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -229,6 +230,19 @@ MonoBehaviour:
   normalMaterial: {fileID: 2100000, guid: c767662f0749fef4aaed8b7bea503bda, type: 2}
   highlightedMaterial: {fileID: 2100000, guid: 669025377795b574da66d9bb2472fcab, type: 2}
   isHighlighted: 0
+--- !u!114 &1401972881113392295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8611591992624439056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74675b016cdb6df4baa5844257d3602a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCastRadius: 0.5
 --- !u!1001 &3341933386530274073
 PrefabInstance:
   m_ObjectHideFlags: 0
