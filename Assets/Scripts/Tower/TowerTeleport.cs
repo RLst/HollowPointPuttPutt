@@ -10,8 +10,7 @@ namespace HollowPoint
         Gun gun;
         IInput input;
         public Tower currentTower { get; private set; }
-        Player player;
-        TeleportController fadeManager;
+        TeleportController tc;
         int holeNumber = 1;
 
         [SerializeField] UnityEvent OnTeleport;
@@ -21,8 +20,7 @@ namespace HollowPoint
             gun = GetComponentInChildren<Gun>();
             input = GetComponent<IInput>();
             if (input == null) Debug.Log("no input found");
-            player = GetComponent<Player>();
-            fadeManager = GetComponent<TeleportController>();
+            tc = GetComponent<TeleportController>();
         }
 
         void Start()
@@ -68,7 +66,7 @@ namespace HollowPoint
                 OnTeleport.Invoke();
                 //Do other teleport stuff here
                 //fadeManager.InitiateTeleport(towerHit.transform.Find("StandPoint"));
-                fadeManager.InitiateTeleport(towerHit.standPoint); // causes game to freeze
+                tc.InitiateTeleport(towerHit.standPoint); // causes game to freeze
 
                 //Renable current tower
                 currentTower.GetComponent<Collider>().enabled = true;

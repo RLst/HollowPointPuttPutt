@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 68710636}
   - component: {fileID: 1401972881113392295}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: watchTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74675b016cdb6df4baa5844257d3602a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCastRadius: 0.5
+  sphereCastRadius: 0.75
+  distanceToCheck: 2
 --- !u!1001 &3341933386530274073
 PrefabInstance:
   m_ObjectHideFlags: 0

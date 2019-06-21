@@ -8,16 +8,17 @@ namespace HollowPoint
     public class TowerHideBeams : MonoBehaviour
     {
         [SerializeField] float sphereCastRadius = 0.5f;
+        [SerializeField] float distanceToCheck = 2f;
 
         OVRCameraRig camRig;
         Transform centerEyeAnchor;
-        Tower currentTower;     //Hopefully this is a pointer
+        // Tower currentTower;     //Hopefully this is a pointer
 
-        Tower tower;
+        Tower thisTower;
 
         void Awake()
         {
-            tower = GetComponent<Tower>();
+            thisTower = GetComponent<Tower>();
             camRig = GameObject.FindGameObjectWithTag("Player").GetComponent<OVRCameraRig>();
             // centerEyeAnchor = OVRManager.instance.GetComponent<OVRCameraRig>().centerEyeAnchor;
             // centerEyeAnchor = FindObjectOfType<ovrmang>().centerEyeAnchor;
@@ -26,19 +27,20 @@ namespace HollowPoint
         void Start()
         {
             centerEyeAnchor = camRig.centerEyeAnchor;
-            currentTower = camRig.GetComponent<TowerTeleport>().currentTower;
+
+            // currentTower = camRig.GetComponent<TowerTeleport>().currentTower;
             // currentTower = centerEyeAnchor.gameObject.GetComponent<TowerTeleport>().currentTower;
         }
 
         void Update()
         {
-            currentTower.ShowAllOfTower();
+            thisTower.ShowAllOfTower();
 
             //Check if any of the current tower's hideables are hit
-            foreach (var hideable in currentTower.hideables)
+            foreach (var hideable in thisTower.hideables)
             {
                 //If the sphere cast from the center eye anchor hits something...
-                if (Physics.SphereCast(centerEyeAnchor.position, sphereCastRadius, centerEyeAnchor.forward, out RaycastHit hitInfo, 1000f))
+                if (Physics.SphereCast(centerEyeAnchor.position, sphereCastRadius, centerEyeAnchor.forward, out RaycastHit hitInfo, distanceToCheck))
                 {
                     //If that something is this hideable then hide it
                     var hideableHit = hitInfo.collider.GetComponent<TowerHideable>();
