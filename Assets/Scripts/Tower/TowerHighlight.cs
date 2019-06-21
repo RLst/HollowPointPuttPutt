@@ -33,7 +33,7 @@ namespace HollowPoint
         void Awake()
         {
             //Find and store all towers
-            towers = FindObjectsOfType<Tower>();    
+            towers = FindObjectsOfType<Tower>();
 
             //Cache gun
             gun = GetComponentInChildren<Gun>();
@@ -51,7 +51,7 @@ namespace HollowPoint
             layermask = ~layermask;
             if (gun.Raycast<Tower>(out Tower hit, layermask))
             {
-                hit.shouldBeLit = true;
+                hit.isHighlighted = true;
             }
 
             //Otherwise unhighlight everything
@@ -62,7 +62,7 @@ namespace HollowPoint
         {
             foreach (var t in towers)
             {
-                t.shouldBeLit = false;
+                t.isHighlighted = false;
             }
         }
     }

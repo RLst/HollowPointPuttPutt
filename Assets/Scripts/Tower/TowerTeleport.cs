@@ -9,7 +9,7 @@ namespace HollowPoint
     {
         Gun gun;
         IInput input;
-        Tower currentTower;
+        public Tower currentTower { get; private set; }
         Player player;
         TeleportController fadeManager;
         int holeNumber = 1;
