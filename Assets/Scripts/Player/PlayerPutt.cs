@@ -8,10 +8,10 @@ namespace HollowPoint
     {
         [SerializeField] UnityEvent OnPutt;
         [SerializeField] LayerMask ballLayer;
-        [SerializeField] HoleManager holeManager;
+        // [SerializeField] HoleManager holeManager;
         [SerializeField] GameObject ball;
 
-        TeleportController tpController;
+        // TeleportController tpController;
 
         IInput input;
         Gun gun;
@@ -23,8 +23,8 @@ namespace HollowPoint
             input = GetComponent<OGoInput>();
             gun = GetComponentInChildren<Gun>();
             gunPrevParent = gun.transform.parent;
-            tpController = GetComponent<TeleportController>();
-            Debug.Log(tpController);
+            // tpController = GetComponent<TeleportController>();
+            // Debug.Log(tpController);
         }
 
         void Update()
@@ -49,8 +49,9 @@ namespace HollowPoint
 
         private void HandlePutting()
         {
-            if (tpController.fadeCountDown <= 0)
-            {
+            //If the teleportation is done
+            // if (tpController.fadeCountDown <= 0)
+            // {
                 if (input.fired && ball.GetComponent<Rigidbody>().velocity.magnitude < 0.25f)
                 {
                     gun.powerup = true;
@@ -65,12 +66,12 @@ namespace HollowPoint
                     gun.transform.SetParent(gunPrevParent);
                     gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
                 }
-            }
-            else if(gun.transform.parent.Equals(transform))
-            {
-                gun.transform.SetParent(gunPrevParent);
-                gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
-            }
+            // }
+            // else if(gun.transform.parent.Equals(transform))
+            // {
+            //     gun.transform.SetParent(gunPrevParent);
+            //     gun.transform.SetPositionAndRotation(gun.transform.parent.position, gun.transform.parent.rotation);
+            // }
         }
 
 
@@ -82,7 +83,7 @@ namespace HollowPoint
             //If a ball is hit then "putt" it
             if (gun.Raycast<Ball>(out Ball ballHit, out RaycastHit hitInfo, ballLayer))
             {
-                holeManager.addShot();
+                // holeManager.addShot();
                 ballHit.Putt(hitInfo.point, gun.force);
             }
         }

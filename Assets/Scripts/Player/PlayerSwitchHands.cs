@@ -6,7 +6,7 @@ namespace HollowPoint
     public class PlayerSwitchHands : MonoBehaviour
     {
         [SerializeField] bool rightHanded = true;
-        [SerializeField] float LOffsetX;
+        [SerializeField] float LOffsetX = -0.43f;   //Magic!
 
         Gun gun;
         Vector3 ROffset;
